@@ -3,9 +3,9 @@ Adam Tolley                                  ~ Web Application Architect ~      
                                                             
                                                        -[ MVP ]-
 
-This resume is a minimal viable product of an eventually amazing webpage. Surely, as a resume for a seasoned engineer 
-in the web development space, not just any webpage will suffice, but development time is in opposition to opportunity 
-cost. Instead this plaintext document seeks to deliver 80% of that value in 20% of the time.
+This resume constitutes a minimal viable product of an eventually amazing webpage. Surely, as a resume for a seasoned 
+engineer in the web development space, not just any webpage will suffice, but development time is in opposition to 
+opportunity cost. Instead this plaintext document seeks to deliver 80% of that value in 20% of the time.
 
                                                    -[ Introduction ]-
 
