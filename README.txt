@@ -3,21 +3,22 @@ Adam Tolley                                  ~ Web Application Architect ~      
                                                             
                                                        -[ MVP ]-
 
-This resume is a minimal viable product of an eventually amazing web page. As a web developer, not just any webpage will
-suffice and development time is in opposition to opportunity cost.  Plaintext gets us 80% there in 20% of the time.
+This resume is a minimal viable product of an eventually amazing webpage. Surely, as a resume for a seasoned engineer 
+in the web development space, not just any webpage will suffice, but development time is in opposition to opportunity 
+cost. Instead this plaintext document seeks to deliver 80% of that value in 20% of the time.
 
                                                    -[ Introduction ]-
 
-I am a seasoned web developer with experience over a broad variety of platforms and paradigms. I have provided technical 
-leadership and innovation as an architect of multiple full-stack web solutions.  
+I am a seasoned software engineer with experience over a broad variety of platforms and paradigms. I have provided 
+technical leadership and innovation as an architect of multiple full-stack web solutions.  
 
 My career spans nearly two decades of evolving trends and disciplines in the web development space. From CGI gateways to 
 SPAs to JAM-Stack, I have seen the pendulum swing between client and server, UX and DX, semantic and presentational CSS. 
-Throughout, I have been humbled by the scope, complexity, and nuance inherent in developing software for the broadest 
-possible audience.
+Throughout, I have been continuously impressed and inspired by the scope, complexity, and nuance inherent in developing 
+software for the broadest possible audience.
 
-I look forward to leveraging my learning thus far in new endeavors, whether they further my journey web applications
-development or turn towards new languages and opportunities in computer science. I am driven forward by a passion for 
+I look forward to leveraging my learning thus far in new endeavors, whether they further my journey in web applications
+engineering or turn towards new languages and opportunities in computer science. I am driven forward by a passion for 
 craft and a desire to learn every day.
                       
                                                     -[ Character ]-
@@ -27,15 +28,14 @@ craft and a desire to learn every day.
 - I believe effective programming is a process of discovering the boundaries between innate and artificial complexity
 - I believe that empathy, humility, and curiosity are as essential as knowledge, intelligence and experience
 - I value diversity, equity, inclusivity and accessibility
-- I vastly prefer solving difficult problems to completing repetitive tasks, this isn't always a strength
+- I vastly prefer solving difficult problems to completing repetitive tasks
 - I really like bulleted lists (and parentheses)
 
                                                     -[ Education ]-
 
-- B.S. in Computer Science from Hood College, 2008
-- A.S. in Computer Science from Frederick Community College, 2004
-- Certified ScrumMaster (CSA) in 2013 (expired)
-- Microsoft MCSE certified in 2000 (super-expired)
+  College Degrees                                             Professional Certifications
+  - BS in Computer Science ~ Hood College, 2008               - Certified ScrumMaster (CSA) in 2013 (expired)
+  - AS in Computer Science ~ Frederick Comm. College, 2004    - Microsoft MCSE certified in 2000 (super-expired)
 
                                              -[ Selected Work Experience ]-  
 
@@ -82,7 +82,7 @@ NGP VAN ___________________________________________________ Software Engineer __
 
 Marriott __________________________________________________ Front End Developer ____________________ Feb 2013 - Dec 2013
 
-- Enhanced and maintained critical-path portions of the International reservations website
+- Enhanced and maintained critical-path portions of the international reservations website
 - Leveraged multivariate and interview-based user testing to define and verify development goals
 - Worked closely with design team to ideate, prototype and execute UX concepts
 - Assembled a collaborative, Node JS cloud-based toolchain to facilitate rapid UI/UX prototyping
