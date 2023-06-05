@@ -73,7 +73,7 @@ NGP VAN ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 - Developed in-house CSV record export system which increased export capacity by an order of magnitude
 
 SocietyLab.org ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤ Founding Application Architect╌╌╌╌╌╌╌╌╌┤ Aug 2013 - Jun 2016
-- Developed in-house CSV record export system which increased export capacity by an order of magnitude
+- Developed custom Angular, Node, NeDb, D3.js application to visualize connected data in a force directed graph
 
 Marriott ├(contract)╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤ Front End Developer ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤ Feb 2013 - Dec 2013
 - Enhanced and maintained critical-path portions of the international reservations website
