@@ -1,0 +1,12 @@
+{
+  "name": "refactorized-resume",
+  "version": "1.0.1",
+  "description": "",
+  "main": "cat README.md",
+  "scripts": {
+    "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLISCENCED"
+}
