@@ -1,3 +1,7 @@
+*
+! *.ts
+! *.js
+! *.tsx
 ! *.txt
 ! bin/*.pdf
 ! bin/*.pages
