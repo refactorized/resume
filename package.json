@@ -4,9 +4,14 @@
   "description": "",
   "main": "cat README.md",
   "scripts": {
-    "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'"
+    "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'",
+    "run": "pnpm dlx @11ty/eleventy --serve",
+    "build": "pnpm dlx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
-  "license": "UNLISCENCED"
+  "license": "UNLISCENCED",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
 }
