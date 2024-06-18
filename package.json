@@ -12,6 +12,10 @@
   "author": "",
   "license": "UNLISCENCED",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "prettier": "^3.3.2"
+  },
+  "prettier": {
+    "semi": false
   }
 }
