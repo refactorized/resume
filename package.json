@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'",
     "serve": "eleventy --serve",
-    "dev": "eleventy --serve",
-    "build": "eleventy"
+    "dev": "rimraf _site; eleventy --serve",
+    "build": "eleventy",
+    "render": "node src/buildPdf.js",
+    "dist": "cp _local/base.pdf dist/resume.pdf"
   },
   "keywords": [],
   "author": "",

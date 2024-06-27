@@ -2,6 +2,9 @@
   --page-width: 8.5in;
   --page-height: 10.8in;
   font-size: 15px;
+  --text-lg: calc(9/8 * 1rem);
+  --text-sm: calc(7/8 * 1rem);
+  --page-margin: calc(3/8 * 1in);
 }
 
 @page {
@@ -12,7 +15,8 @@
 body {
   background-color: lightgrey;
   font-size: 1rem;
-  font-family: Karla;
+  font-family: 'Garamond';
+  /* font-family: 'Karla'; */
   line-height: 1.2em;
 }
 
@@ -24,7 +28,7 @@ body {
   max-width: var(--page-width);
   height: var(--page-height);
   max-height: var(--page-height);
-  padding: 0.33in;
+  padding: var(--page-margin);
   overflow: hidden;
 }
 
@@ -63,7 +67,7 @@ header {
   align-content: flex-start;
   width: 100%;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: var(--text-lg);
 
   .name {
     flex-grow: 0;
@@ -78,10 +82,15 @@ header {
   }
 }
 
-.email {
+.contact {
   position: absolute;
-  bottom: 0.33in;
-  left: 0.33in;
+  bottom: var(--page-margin);
+  left: var(--page-margin);
+  right: var(--page-margin);
+  display: flex;
+  justify-content: space-between;
+
+  font-size: var(--text-sm);
 }
 
 thead {
