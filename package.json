@@ -5,17 +5,26 @@
   "main": "cat README.md",
   "scripts": {
     "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'",
-    "run": "pnpm dlx @11ty/eleventy --serve",
-    "build": "pnpm dlx @11ty/eleventy"
+    "serve": "eleventy --serve",
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "UNLISCENCED",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "prettier": "^3.3.2"
+    "@11ty/eleventy": "3.0.0-alpha.13",
+    "markdown-it": "^14.1.0",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-sub": "^2.0.0",
+    "prettier": "^3.3.2",
+    "puppeteer": "^22.12.0",
+    "rimraf": "^5.0.7"
   },
   "prettier": {
-    "semi": false
-  }
+    "semi": false,
+    "singleQuote": true
+  },
+  "type": "module"
 }

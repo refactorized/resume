@@ -187,3 +187,5 @@ pnpm-debug.log*
 #explicitly local
 _local/
 .local/
+
+_site/

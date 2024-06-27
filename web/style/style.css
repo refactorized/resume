@@ -1,0 +1,126 @@
+:root {
+  --page-width: 8.5in;
+  --page-height: 10.8in;
+  font-size: 15px;
+}
+
+@page {
+  size: letter;
+  margin: 0;
+}
+
+body {
+  background-color: lightgrey;
+  font-size: 1rem;
+  font-family: Karla;
+  line-height: 1.2em;
+}
+
+.page {
+  position: relative;
+  margin: 0.5in auto;
+  background-color: white;
+  width: var(--page-width);
+  max-width: var(--page-width);
+  height: var(--page-height);
+  max-height: var(--page-height);
+  padding: 0.33in;
+  overflow: hidden;
+}
+
+@media print {
+  .page {
+    margin: 0;
+  }
+}
+
+h2 {
+  position: relative;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  overflow: hidden;
+}
+
+/* h2::after {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  border-bottom: black solid 1px;
+  margin-bottom: 1.5px;
+  content: " ";
+} */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+
+  .name {
+    flex-grow: 0;
+    padding-right: 0.5rem;
+  }
+
+  .title {
+    flex-grow: 0;
+    font-weight: normal;
+    /* padding-left: 0.5rem; */
+    /* border-left: solid 1px black; */
+  }
+}
+
+.email {
+  position: absolute;
+  bottom: 0.33in;
+  left: 0.33in;
+}
+
+thead {
+  display: none;
+}
+
+td {
+  font-size: 1rem;
+  padding-left: 1rem;
+
+  &:first-child {
+    padding-left: 0rem;
+  }
+
+  &:nth-last-child(-n + 2) {
+    padding-left: 0;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+ul {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  list-style: "- " outside;
+  padding: 0;
+  li & {
+    padding-left: 1em;
+    margin: 0.25rem 0;
+  }
+}
+
+li em {
+  font-size: 0.8em;
+}
+
+p {
+  margin: 0.5rem 0;
+}
