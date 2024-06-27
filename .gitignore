@@ -1,5 +1,3 @@
-output
-tmp
 
 # Created by https://www.toptal.com/developers/gitignore/api/osx,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=osx,node
@@ -180,9 +178,6 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-
-# macOS-specific files
-.DS_Store
 
 #explicitly local
 _local/
