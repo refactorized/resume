@@ -157,15 +157,6 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,node
 
-
-## from default astro gitignpre
-
-# build output
-dist/
-
-# generated types
-.astro/
-
 # dependencies
 node_modules/
 
