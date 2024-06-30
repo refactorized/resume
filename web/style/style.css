@@ -18,6 +18,7 @@ body {
   font-family: 'Lato';
   /* font-family: 'Karla'; */
   line-height: 1.2em;
+  font-weight: 400;
 }
 
 .page {
@@ -66,7 +67,7 @@ header {
   justify-content: center;
   align-content: flex-start;
   width: 100%;
-  font-weight: bold;
+  font-weight: 700;
   font-size: var(--text-lg);
 
   .name {
@@ -76,7 +77,7 @@ header {
 
   .title {
     flex-grow: 0;
-    font-weight: normal;
+    font-weight: 400;
     /* padding-left: 0.5rem; */
     /* border-left: solid 1px black; */
   }
