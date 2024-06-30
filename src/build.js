@@ -3,7 +3,7 @@ import Eleventy from '@11ty/eleventy'
 import { mkdirp } from 'mkdirp'
 
 const port = process?.env?.PORT || 3927
-const path = process?.env?.OUT_DIR || './_site/resume/resume.pdf'
+const path = process?.env?.PDF_DIR || './_site/resume.pdf'
 const pathDir = path.split('/').slice(0, -1).join('/')
 
 await mkdirp(pathDir)
@@ -21,7 +21,7 @@ const page = await browser.newPage()
 // Set screen size.
 await page.setViewport({ width: 1080, height: 1024 })
 
-await page.goto(`http://localhost:${port}/`, {
+await page.goto(`http://localhost:${port}/resume`, {
   waitUntil: 'networkidle2',
 })
 
