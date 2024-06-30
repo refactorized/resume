@@ -2,9 +2,9 @@
   --page-width: 8.5in;
   --page-height: 10.8in;
   font-size: 15px;
-  --text-lg: calc(9/8 * 1rem);
-  --text-sm: calc(7/8 * 1rem);
-  --page-margin: calc(3/8 * 1in);
+  --text-lg: calc(9 / 8 * 1rem);
+  --text-sm: calc(7 / 8 * 1rem);
+  --page-margin: calc(1 / 2 * 1in);
 }
 
 @page {
@@ -118,7 +118,7 @@ table {
 ul {
   margin-top: 0.5rem;
   margin-left: 1rem;
-  list-style: "- " outside;
+  list-style: '- ' outside;
   padding: 0;
   li & {
     padding-left: 1em;
