@@ -7,13 +7,17 @@
     "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'",
     "serve": "eleventy --serve",
     "dev": "rimraf _site; eleventy --serve",
-    "build": "node src/build.js"
+    "build-all": "rimraf  _build _site; node src/build.js --pdfs",
+    "build": "eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
     "@11ty/eleventy": "3.0.0-alpha.13",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "jsonfile": "^6.1.0",
     "markdown-it": "^14.1.0",
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-container": "^4.0.0",

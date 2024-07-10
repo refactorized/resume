@@ -16,7 +16,7 @@ effectiveness, code reusability, and cross department collaboration.
 
 ## Skills and Experience Across the Entire Stack
 
-- next.js, react, web components, lit, stencil.js, 11ty, astro
+- next.js, react/reactjs, web components, lit, stencil.js, 11ty, astro
 - javascript, typescript, c#, python, shell scripting, functional programming
 - SQL, GraphQL, REST APIs, sanity.io, contentful, headless cms
 - html, css, scss, svg, styled components, emotion, css-in-js, vanilla extract.
