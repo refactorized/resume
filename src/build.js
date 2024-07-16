@@ -74,8 +74,6 @@ elly.serve(port)
 const browser = await puppeteer.launch()
 const page = await browser.newPage()
 
-// todo: pre-build and serve
-// Set screen size.
 for (const [url, outPath] of jobs) {
   const outDir = path.dirname(outPath)
 

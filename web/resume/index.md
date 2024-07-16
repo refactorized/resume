@@ -6,7 +6,7 @@ tags: pdf
 
 ## Web Platform Practitioner
 
-My career comprises over a decade of modern web development with HTML, css, and javascript.
+My career comprises over a decade of modern web development with HTML, CSS, and JavaScript.
 
 As web development has evolved from statically served pages, to client-heavy SPAs, to full-stack
 hybrid client/server applications I have continuously broadened and deepened my skill set.
@@ -16,14 +16,14 @@ effectiveness, code reusability, and cross department collaboration.
 
 ## Skills and Experience Across the Entire Stack
 
-- next.js, react, web components, lit, stencil.js, 11ty, astro
-- javascript, typescript, c#, python, shell scripting, functional programming
-- SQL, GraphQL, REST APIs, sanity.io, contentful, headless cms
-- html, css, scss, svg, styled components, emotion, css-in-js, vanilla extract.
-- node.js, JAM stack, SSR, SSG, island architecture, SPA, PWA, MVC, MV VM, MV\*
-- AWS, lambda, microservices, ec2, elastic beanstalk, amplify, cognito, netlify
-- git, SCM, agile methodologies, code review, scrum, best practices, mentorship
-- unit testing, integration testing, jest, mocha, TDD, automation, puppeteer, playwright
+- Next.js, React, Web Components, Lit, Stencil.js, 11ty, Astro
+- JavaScript, TypeScript, C#, Python, shell scripting, functional programming
+- SQL, GraphQL, REST APIs, sanity.io, Contentful, headless CMS
+- HTML, CSS, SCSS, SVG, Styled Components, Emotion, CSS-in-JS, vanilla extract
+- node.js, JAM stack, SSR, SSG, Island architecture, SPA, PWA, MVC, MV VM, MV\*
+- AWS, ( Lambda, S3, ec2, Elastic Beanstalk, Amplify, Cognito ) Netlify, microservices
+- git, SCM, Agile methodologies, code review, Scrum, best practices, mentorship
+- unit and integration testing, automation, Jest, Mocha, TDD, Puppeteer, Playwright
 - naming things, cache invalidation
 
 ## Recent Accomplishments

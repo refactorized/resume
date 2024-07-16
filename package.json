@@ -8,7 +8,7 @@
     "serve": "eleventy --serve",
     "dev": "rimraf _site; eleventy --serve",
     "build-all": "rimraf  _build _site; node src/build.js --pdfs",
-    "build": "eleventy"
+    "build": "node src/build.js"
   },
   "keywords": [],
   "author": "",
