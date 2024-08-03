@@ -18,6 +18,11 @@ program
   .option('-q, --quiet', 'no console.log()', false)
   .option('--no-color', 'no colors in console output', false)
   .option(
+    '--wait',
+    `don't close process when finished, you know, for debugging`,
+    false,
+  )
+  .option(
     '--pdfs-dir',
     'pdf output directory, for local builds',
     './_build/pdf',
@@ -25,7 +30,15 @@ program
 
 program.parse()
 
-const { noPdf, pdfs: allPdfs, port, quiet, pdfsDir, noColor } = program.opts()
+const {
+  noPdf,
+  pdfs: allPdfs,
+  port,
+  quiet,
+  pdfsDir,
+  noColor,
+  wait,
+} = program.opts()
 const log = !quiet ? console.log : () => {}
 const chalk = new Chalk({ level: noColor ? 0 : 1 })
 
@@ -61,14 +74,12 @@ if (allPdfs) {
 
   paths.forEach((p) => {
     if (isVariantPath(p)) {
-      jobs.push([`${webRootUrl}/${p}`, toOutputPath(p)])
+      jobs.push([`${webRootUrl}${p}`, toOutputPath(p)])
     }
   })
 }
 
-log({ jobs })
-
-elly.serve(port)
+await elly.serve(port)
 
 // Launch the browser and open a new blank page
 const browser = await puppeteer.launch()
@@ -99,4 +110,8 @@ for (const [url, outPath] of jobs) {
 
 // await browser.close()
 
-process.exit(0)
+if (!wait) {
+  process.exit(0)
+}
+
+console.log(`\n still serving, ctrl-c to kill`)

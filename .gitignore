@@ -1,8 +1,15 @@
+### Project Specific ###
 
-# Created by https://www.toptal.com/developers/gitignore/api/osx,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=osx,node
+# explicitly local
+_local/
+.local/
 
-### Node ###
+# build output
+_site/
+_build/
+
+### Node ###  (trimmed down) 
+
 # Logs
 logs
 *.log
@@ -47,9 +54,31 @@ node_modules/
 .env
 .env.production
 
-#explicitly local
-_local/
-.local/
+### MacOS Stuff ###
 
-_site/
-_build/
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
