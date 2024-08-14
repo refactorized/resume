@@ -18,13 +18,16 @@ effectiveness, code reusability, and cross department collaboration.
 
 - Next.js, React, Web Components, Lit, Stencil.js, 11ty, Astro
 - JavaScript, TypeScript, C#, Python, shell scripting, functional programming
-- SQL, GraphQL, REST APIs, sanity.io, Contentful, headless CMS
+- SQL, GraphQL, REST APIs, JSON, sanity.io, Contentful, headless CMS
 - HTML, CSS, SCSS, SVG, Styled Components, Emotion, CSS-in-JS, vanilla extract
-- node.js, JAM stack, SSR, SSG, Island architecture, SPA, PWA, MVC, MV VM, MV\*
+- node.js, JAM stack, SSR, SSG, island architecture, SPA, PWA, MVC, MV VM, MV\*
 - AWS, ( Lambda, S3, ec2, Elastic Beanstalk, Amplify, Cognito ) Netlify, microservices
-- git, SCM, Agile methodologies, code review, Scrum, best practices, mentorship
+- git, SCM, Agile methodologies, DX, code review, Scrum, best practices, mentorship
 - unit and integration testing, automation, Jest, Mocha, TDD, Puppeteer, Playwright
+- design systems, design tokens, accessibility, a11y, WCAG, UX/UI, user studies
 - naming things, cache invalidation
+
+{.skills-list}
 
 ## Recent Accomplishments
 
@@ -35,8 +38,8 @@ effectiveness, code reusability, and cross department collaboration.
     (sanity.io)
   - Augments common CSS-in-JS frameworks with a set of composable utility functions
   - Maps deeply nested backend data to explicit TypeScript objects, using recursive type generics
-- Built react/redux tooling for dynamic data-driven construction of complex web forms and business
-  logic
+- Created data-driven react/redux tooling capable of generating complex, dynamic web forms for
+  manipulating deeply nested data defined via JSON schemas
 
 ## Employment History
 
@@ -58,4 +61,4 @@ effectiveness, code reusability, and cross department collaboration.
 
 - BS in Computer Science _from_ Hood College _in_ 2008
 - AS in Computer Science _from_ Frederick Community College _in_ 2004
-- Certificates: ScrumMaster (CSA) _in_ 2013, MCSE, A+, and Net+ _in_ 2000
+- Certificates: ScrumMaster (CSM) _in_ 2013, MCSE, A+, and Net+ _in_ 2000

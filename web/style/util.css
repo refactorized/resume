@@ -1,0 +1,21 @@
+:root {
+  --util-grid-x: 1lh;
+  --util-grid-y: 1lh;
+  --util-grid-offset-x: 0;
+  --util-grid-offset-y: 0;
+  --util-grid-color: #00000011;
+
+  .util-grid-on {
+    background-size: var(--util-grid-x) var(--util-grid-y);
+    background-image: linear-gradient(
+        to right,
+        var(--util-grid-color) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        var(--util-grid-color) 1px,
+        transparent 1px /*      */
+      );
+  }
+}

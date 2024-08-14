@@ -35,10 +35,7 @@ github: github.com/refactorized
     --page-height: 10.8in;
     --text-lg: calc(9 / 8 * 1rem);
     --text-sm: calc(7 / 8 * 1rem);
-    --resume-margin-top: 0.6in;
-    --resume-margin-rgt: 1in;
-    --resume-margin-bot: 1in;
-    --resume-margin-lft: 1in;
+    --page-margin: calc(3 / 4 * 1in);
 
     font-size: 13px;
 
@@ -57,7 +54,6 @@ github: github.com/refactorized
     background-color: lightgrey;
     font-size: 1rem;
     line-height: 1.2em;
-    font-weight: 400;
   }
 
   .page {
@@ -68,8 +64,7 @@ github: github.com/refactorized
     max-width: var(--page-width);
     height: var(--page-height);
     max-height: var(--page-height);
-    padding: var(--resume-margin-top) var(--resume-margin-rgt)
-      var(--resume-margin-bot) var(--resume-margin-lft);
+    padding: var(--page-margin);
     overflow: hidden;
   }
 
@@ -99,7 +94,6 @@ github: github.com/refactorized
     width: 100%;
     font-weight: 700;
     font-size: var(--text-lg);
-    margin-bottom: 1.2em;
 
     .name {
       flex-grow: 0;
@@ -109,14 +103,16 @@ github: github.com/refactorized
     .title {
       flex-grow: 0;
       font-weight: 400;
+      /* padding-left: 0.5rem; */
+      /* border-left: solid 1px black; */
     }
   }
 
   .contact {
     position: absolute;
-    bottom: var(--resume-margin-bot);
-    left: var(--resume-margin-lft);
-    right: var(--resume-margin-rgt);
+    bottom: var(--page-margin);
+    left: var(--page-margin);
+    right: var(--page-margin);
     display: flex;
     justify-content: space-between;
 
@@ -146,16 +142,20 @@ github: github.com/refactorized
   }
 
   ul {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
     list-style: '- ' outside;
     padding: 0;
-    margin-left: 0.6em;
+    li {
+      margin: 0.125rem 0;
+    }
     li & {
-      padding-left: 0.6em;
+      padding-left: 1em;
     }
   }
 
   li em {
-    font-size: var(--text-sm);
+    font-size: 0.8em;
   }
 
   p {
