@@ -15,14 +15,19 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@11ty/eleventy": "3.0.0-alpha.13",
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
     "chalk": "^5.3.0",
+    "code-tag": "^1.2.0",
     "commander": "^12.1.0",
+    "fast-safe-stringify": "^2.1.1",
+    "js-yaml": "^4.1.0",
     "jsonfile": "^6.1.0",
     "markdown-it": "^14.1.0",
     "markdown-it-attrs": "^4.1.6",
     "markdown-it-container": "^4.0.0",
     "markdown-it-sub": "^2.0.0",
     "mkdirp": "^3.0.1",
+    "open-props": "^1.7.5",
     "prettier": "^3.3.2",
     "puppeteer": "^22.12.1",
     "rimraf": "^5.0.7"
@@ -36,6 +41,14 @@
         "options": {
           "printWidth": 100,
           "proseWrap": "always"
+        }
+      },
+      {
+        "files": [
+          "*.webc"
+        ],
+        "options": {
+          "parser": "html"
         }
       }
     ]

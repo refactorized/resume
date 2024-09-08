@@ -1,7 +1,0 @@
----
-layout: history.html
-jobTitle: Work History
-tags: pdf
----
-
-{% renderFile "./parts/jobs.md" %}

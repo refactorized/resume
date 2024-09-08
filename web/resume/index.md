@@ -21,7 +21,7 @@ effectiveness, code reusability, and cross department collaboration.
 - SQL, GraphQL, REST APIs, JSON, sanity.io, Contentful, headless CMS
 - HTML, CSS, SCSS, SVG, Styled Components, Emotion, CSS-in-JS, vanilla extract
 - node.js, JAM stack, SSR, SSG, island architecture, SPA, PWA, MVC, MV VM, MV\*
-- AWS, ( Lambda, S3, ec2, Elastic Beanstalk, Amplify, Cognito ) Netlify, microservices
+- AWS, (Lambda, S3, ec2, Elastic Beanstalk, Amplify, Cognito) Netlify, microservices
 - git, SCM, Agile methodologies, DX, code review, Scrum, best practices, mentorship
 - unit and integration testing, automation, Jest, Mocha, TDD, Puppeteer, Playwright
 - design systems, design tokens, accessibility, a11y, WCAG, UX/UI, user studies

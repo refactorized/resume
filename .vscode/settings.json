@@ -1,23 +1,35 @@
 {
+  "files.associations": {
+    "*.webc": "html"
+  },
   "cSpell.words": [
     "adamtolley",
+    "addShortcode",
     "astro",
     "contentful",
     "dirp",
+    "divs",
     "elly",
+    "endpages",
     "Experient",
     "Figtree",
+    "jorb",
+    "jorbs",
     "MCSE",
     "mdattrs",
     "mdsub",
     "metaframework",
     "Metrico",
     "networkidle",
+    "oklch",
     "Pdfs",
     "refactorized",
+    "Shortcode",
+    "shortcodes",
     "smoosh",
     "Subdir",
     "WCAG",
+    "Webc",
     "wrappered"
   ],
   "cSpell.enabled": true

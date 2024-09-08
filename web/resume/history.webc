@@ -1,0 +1,20 @@
+---
+fullName: Adam Tolley
+jobTitle: Senior Software Engineer
+email: adam.tolley+jobs@gmail.com
+linkedin: linkedin.com/in/adamtolley
+github: github.com/refactorized
+---
+
+<template webc:type="11ty" 11ty:type="liquid,md">
+  <div webc:for="job of jobs">
+    <div webc:for="role of job.roles">
+      <div class="job-header">
+        <div class="job-company" :@text="json(job)"></div>
+        <div class="role-as" @text="role.as"></div>
+        <div class="role-from" @text="role.from"></div>
+        <div class="role-to" @text="role.to"></div>
+      </div>
+    </div>
+  </div>
+</template>

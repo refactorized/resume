@@ -16,28 +16,18 @@ github: github.com/refactorized
   <link href="/style/reset.css" rel="stylesheet" />
   <title>{{fullName}} {{jobTitle}}</title>
 </head>
-<div class="page">
-  <header>
-    <div class="name">{{fullName}}</div>
-    <div class="title">{{jobTitle}}</div>
-  </header>
-  <section class="content">{{content}}</section>
-  <section class="contact">
-    <div class="email">{{email}}</div>
-    <div class="github">{{github}}</div>
-    <div class="linkedin">{{linkedin}}</div>
-  </section>
-</div>
 
+{{content}} {{jobs}}
 <style>
+  html {
+    font-size: 11px;
+  }
   :root {
     --page-width: 8.5in;
     --page-height: 10.8in;
     --text-lg: calc(9 / 8 * 1rem);
     --text-sm: calc(7 / 8 * 1rem);
     --page-margin: calc(3 / 4 * 1in);
-
-    font-size: 13px;
 
     font-family: 'Figtree', sans-serif;
     font-optical-sizing: auto;
@@ -74,7 +64,7 @@ github: github.com/refactorized
     }
   }
 
-  h2 {
+  h3 {
     position: relative;
     width: 100%;
     font-size: 1rem;

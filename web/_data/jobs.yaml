@@ -1,0 +1,157 @@
+- company: HZ Design Group
+  roles:
+    - { as: Principal Architect, from: Apr 2022, to: May 2023 }
+    - { as: Senior Software Engineer, from: Feb 2020, to: Apr 2022 }
+  highlights: |
+    - Championed greater Design and Dev team collaboration, instituting common practices and terminology
+    - Building HZ Platform, a Hybrid SSG/SSR JAM stack solution based on next.js and custom TypeScript
+      tooling which:
+      - Enables familiar page-building paradigms within a more flexible structured content CMS
+        (sanity.io)
+      - Augments common CSS-in-JS frameworks with a set of composable utility functions
+      - Maps deeply nested backend data to explicit TypeScript objects via recursive generic type
+        definitions
+- company: Frederick Mutual Insurance
+  roles:
+    - as: Senior Software Engineer
+      from: May 2019
+      to: Jan 2020
+
+  highlights: |
+    - Prototyped the front end architecture for a policy management product suite.
+    - Built custom React/Redux framework for dynamically creating deeply-nested, schema-defined web
+      forms
+- company: Social Security Administration
+  roles:
+    - as: Developer
+      from: Jan 2019
+      to: May 2019
+
+  highlights: |
+    - Developed custom data transform and sync tooling to merge XLS based workflows with JSON toolchains
+    - Improved authoring of HTML/CSS correspondence templates with flex-box extensions to our CSS System
+
+- company: DivvyCloud
+  roles:
+    - as: Senior Software Engineer
+      from: Apr 2018
+      to: Oct 2018
+
+  highlights: |
+    - Researched and guided framework component upgrades for our main Python Flask and Angular stack
+    - Built an SVG gauge component using JavaScript and some math to vastly outperform existing
+      wrappered d3.js library
+
+- company: Washington Post
+  roles:
+    - as: Senior Software Engineer
+      from: Jan 2017
+      to: Jan 2018
+
+  highlights: |
+    - Collaborated on an Angular and Node SaaS platform for editing and tracking news stories
+    - Extended suite-wide, Bootstrap style system with specialized input components built in pure
+      css/scss
+
+- company: Instructor and Consultant
+  roles:
+    - as: Independent Contractor
+      from: Jan 2016
+      to: Jan 2017
+
+  highlights: |
+    - Taught full-stack web development with a focus on client and server JavaScript frameworks
+
+- company: Decisive Communications
+  roles:
+    - as: Senior Software Engineer
+      from: Mar 2015
+      to: Jan 2016
+
+  highlights: |
+    - Modernized front-end architecture with AngularJs, Bootstrap, and SASS/SCSS toolchain
+
+- company: NGP VAN
+  roles:
+    - as: Software Engineer
+      from: Jan 2014
+      to: Feb 2015
+
+  highlights: |
+    - Developed in-house CSV record export system which increased export capacity by an order of
+      magnitude
+
+- company: SocietyLab.org
+  roles:
+    - as: Founding Application Architect
+      from: Aug 2013
+      to: Jun 2016
+
+  highlights: |
+    - Built custom Node, NeDb, Ng + D3.js web app to visualize articles as a force directed graph of
+      connected topics
+
+- company: Marriott
+  roles:
+    - as: Front End Developer
+      from: Feb 2013
+      to: Dec 2013
+
+  highlights: |
+    - Enhanced and maintained critical-path portions of the international reservations website
+    - Leveraged multivariate and interview-based user testing to define and verify development goals
+    - Worked closely with design team to ideate, prototype and execute UX concepts
+    - Assembled a collaborative, Node JS cloud-based toolchain to facilitate rapid UI/UX prototyping
+- company: Unison Inc
+  roles:
+    - as: Front End Developer
+      from: Nov 2012
+      to: Feb 2013
+
+  highlights: |
+    - Developed internal blog migration tool using Node.js, Express and Mocha
+    - Implemented responsive layouts from scratch, and with specialized frameworks
+
+- company: Applied Information Systems
+  roles:
+    - as: Software Engineer
+      from: Sep 2010
+      to: Nov 2012
+
+  highlights: |
+    - Collaborated on full stack architecture of a web-based print archive for Vogue and Playboy
+      Magazines
+    - Championed adoption of modern and open web technologies amidst Microsoft-centric firm
+    - Introduced unit testing techniques to my team, providing leadership and guidance necessary to
+      drive adoption
+
+- company: Metrico Wireless
+  roles:
+    - as: Software Engineer
+      from: Jul 2009
+      to: Sep 2010
+
+  highlights: |
+    - Provided web development expertise, supporting our transition from desktop applications to online
+      SaaS offerings
+    - Utilized unit tests, automated integration tests, and TDD to maintain full code coverage for
+      existing products
+
+- company: Experient Inc
+  roles:
+    - as: Programmer Analyst
+      from: Sep 2008
+      to: Jul 2009
+
+  highlights: |
+    - Specialized in improving the CSS and XHTML aspects of our internal codebase
+
+- company: The IRIS Inc.
+  roles:
+    - as: IT Admin, Technical Researcher
+      from: Jun 2000
+      to: Sep 2008
+
+  highlights: |
+    - Developed Java Computed Tomography simulations, exploring and testing a novel image acquisition
+      technique

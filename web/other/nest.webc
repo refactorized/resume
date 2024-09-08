@@ -1,0 +1,17 @@
+---
+fruits:
+  - name: apple
+    colors: [red, green, yellow]
+  - name: banana
+    colors: [yellow]
+  - name: grape
+    colors: [green, red]
+---
+
+<template webc:type="11ty" 11ty:type="liquid,md">
+  <div webc:for="fruit of fruits">
+    <div webc:for="color of fruit.colors">
+      <span @text="color"></span> <span @text="fruit.name"></span>
+    </div>
+  </div>
+</template>
