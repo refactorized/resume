@@ -21,7 +21,7 @@ github: github.com/refactorized
     <div class="name">{{fullName}}</div>
     <div class="title">{{jobTitle}}</div>
   </header>
-  <section class="content">{{content}}</section>
+  <section class="content">{{content | pages}}</section>
   <section class="contact">
     <div class="email">{{email}}</div>
     <div class="github">{{github}}</div>
@@ -39,14 +39,12 @@ github: github.com/refactorized
     --resume-margin-rgt: 1in;
     --resume-margin-bot: 1in;
     --resume-margin-lft: 1in;
-    --font-weight-normal: 300;
-    --font-weight-bold: 600;
 
     font-size: 13px;
 
     font-family: 'Figtree', sans-serif;
     font-optical-sizing: auto;
-    font-weight: var(--font-weight-normal);
+    font-weight: 400;
     font-style: normal;
   }
 
@@ -59,7 +57,7 @@ github: github.com/refactorized
     background-color: lightgrey;
     font-size: 1rem;
     line-height: 1.2em;
-    font-weight: var(--font-weight-normal);
+    font-weight: 400;
   }
 
   .page {
@@ -91,7 +89,6 @@ github: github.com/refactorized
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
     overflow: hidden;
-    font-weight: var(--font-weight-bold);
   }
 
   header {
@@ -100,7 +97,7 @@ github: github.com/refactorized
     justify-content: center;
     align-content: flex-start;
     width: 100%;
-    font-weight: var(--font-weight-bold);
+    font-weight: 700;
     font-size: var(--text-lg);
     margin-bottom: 1.2em;
 
@@ -111,7 +108,7 @@ github: github.com/refactorized
 
     .title {
       flex-grow: 0;
-      font-weight: var(--font-weight-normal);
+      font-weight: 400;
     }
   }
 

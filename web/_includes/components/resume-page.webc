@@ -1,0 +1,17 @@
+<resume-page wec:root :@resume-data>
+  <div class="page">
+    <header>
+      <div class="name" @text="resumeData.fullName"></div>
+      <div class="title" @text="resumeData.jobTitle"></div>
+    </header>
+    <section
+      class="content"
+      @html="renderFile('web/_includes/parts/one-page.md')"
+    ></section>
+    <section class="contact">
+      <span @text="email" class="resumeData.email"></span>
+      <span @text="github" class="resumeData.github"></span>
+      <span @text="linkedin" class="resumeData.linkedin"></span>
+    </section>
+  </div>
+</resume-page>

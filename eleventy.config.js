@@ -3,26 +3,32 @@ import mdsub from 'markdown-it-sub'
 import { EleventyRenderPlugin } from '@11ty/eleventy'
 import yaml from 'js-yaml'
 
-import pages from './src/shortcodes/pages.js'
-import json from './src/shortcodes/json.js'
+import pages from './src/transforms/pages.js'
+import json from './src/transforms/json.js'
+import getChunk from './src/transforms/getChunk.js'
 
 import pluginWebc from '@11ty/eleventy-plugin-webc'
 
 export default function (eleventyConfig) {
-  // Filters and shortcodes // ------------------------------------------------
-  //   splits md by HRs and wraps in .page divs
-  eleventyConfig.addPairedShortcode('pages', pages)
-  //   easy safe stringify data
+  // splits md by HRs and wraps in .page divs
+  eleventyConfig.addFilter('pages', pages)
+
+  // easy safe stringify data
   eleventyConfig.addFilter('json', json)
-  //   add render shortcode
+
+  // splits on a token (default: '\n---\n') and returns specific chunk
+  eleventyConfig.addFilter('getChunk', getChunk)
+
+  // webc support
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: ['**/components/**/*.webc'],
+  })
+
+  // add render shortcode
   eleventyConfig.addPlugin(EleventyRenderPlugin)
-  // --------------------------------------------------------------------------
 
   // simple css copy for now
   eleventyConfig.addPassthroughCopy('web/style/*.css')
-
-  // webc support
-  eleventyConfig.addPlugin(pluginWebc, {})
 
   // add md plugins
   eleventyConfig.amendLibrary('md', (mdLib) => {
@@ -32,6 +38,8 @@ export default function (eleventyConfig) {
 
   // use yaml files in data cascade
   eleventyConfig.addDataExtension('yaml', ($c) => yaml.load($c))
+
+  // alternate content root
   return {
     dir: {
       input: 'web',
