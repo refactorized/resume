@@ -167,3 +167,33 @@ td em {
 p {
   margin: 0.5rem 0;
 }
+
+/* ── Variant modifiers ──────────────────────────────────────────────────────
+   Variants are different views of the same data, distinguished by a class on
+   .sheet. They tweak density/emphasis only — never content.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Comprehensive (3-page): more air, every role un-briefed. */
+.roomy .job {
+  margin-top: 1.15rem;
+}
+.roomy h2 {
+  margin-top: 1.6rem;
+}
+.roomy li {
+  margin-top: 0.28em;
+}
+
+/* First-person profile intro (voice.about). */
+.profile p {
+  margin: 0.4rem 0;
+}
+
+/* Recent-weighted (2-page): tight one-line list of older roles. */
+.additional .job {
+  margin-top: 0.4rem;
+}
+.earlier {
+  margin-top: 0.6rem;
+  font-size: var(--text-sm);
+}

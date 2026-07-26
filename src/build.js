@@ -39,6 +39,8 @@ if (skipPdf) {
 const jobs = [
   [`${webRootUrl}/resume/`, `${webFileRoot}/resume.pdf`],
   [`${webRootUrl}/resume/full/`, `${webFileRoot}/resume-full.pdf`],
+  [`${webRootUrl}/resume/comprehensive/`, `${webFileRoot}/resume-comprehensive.pdf`],
+  [`${webRootUrl}/resume/recent/`, `${webFileRoot}/resume-recent.pdf`],
 ]
 
 await elly.serve(port)

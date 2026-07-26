@@ -8,6 +8,7 @@ import json from './src/transforms/json.js'
 import getChunk from './src/transforms/getChunk.js'
 import bullets from './src/transforms/bullets.js'
 import jobHeader from './src/transforms/jobHeader.js'
+import recencyYear from './src/transforms/recencyYear.js'
 
 import pluginWebc from '@11ty/eleventy-plugin-webc'
 
@@ -26,6 +27,9 @@ export default function (eleventyConfig) {
 
   // renders a work entry's role heading(s) as styled <h3> lines
   eleventyConfig.addFilter('jobHeader', jobHeader)
+
+  // the year a job most recently ended — for weighting/thinning roles in variants
+  eleventyConfig.addFilter('recencyYear', recencyYear)
 
   // webc support
   eleventyConfig.addPlugin(pluginWebc, {

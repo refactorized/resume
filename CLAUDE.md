@@ -9,9 +9,9 @@ own résumé. ESM (`"type": "module"`).
 
 - `npm run serve` / `npm run dev` — live HTML preview via `eleventy --serve`
   (http://localhost:8080; `dev` cleans `_site` first).
-- `npm run build` — `node src/build.js`: builds the site, then prints the one-page résumé
-  (`/resume/`) → `_site/resume.pdf` and the full résumé (`/resume/full/`) →
-  `_site/resume-full.pdf`.
+- `npm run build` — `node src/build.js`: builds the site, then prints all four résumé
+  views to `_site/*.pdf`: `resume.pdf` (one-pager), `resume-full.pdf` (everything, 2pg),
+  `resume-comprehensive.pdf` (3pg), and `resume-recent.pdf` (recent-weighted, 2pg).
 - `npm run build-all` — clean rebuild: `rimraf _build _site` then `node src/build.js`
   (produces the same two PDFs as `build`, from scratch).
 - `build.js` flags: `--skip-pdf`, `--port <n>` (default 3927), `--wait`, `-q`,
@@ -25,9 +25,9 @@ web/_data/resume.yaml   ← the ONLY place content lives: basics, summary, skill
    │                       highlights, education, certifications, work[] (per-role
    │                       highlights + tags), voice
    ▼
-WebC page templates      web/resume/index.webc  (one-pager)
-   │  loop resume.*       web/resume/full.webc   (full résumé, auto-paginated)
-   │  + filters: bullets(), jobHeader()
+WebC page templates      index.webc (one-pager)    full.webc (everything, 2pg)
+   │  loop resume.*       comprehensive.webc (3pg)  recent.webc (recent-weighted, 2pg)
+   │  + filters: bullets(), jobHeader(), recencyYear()
    ▼
 web/style/resume.css     all look & feel + CSS-flow pagination
    ▼
@@ -51,11 +51,17 @@ live HTML   and/or   Puppeteer print → PDF   (src/build.js)
   condensed employment **table**, education. Curated to one page.
 - [web/resume/full.webc](web/resume/full.webc) — full résumé: same sections + **detailed**
   employment history, auto-paginated.
+- [web/resume/comprehensive.webc](web/resume/comprehensive.webc) — 3-page view:
+  `voice.about` profile intro, every role un-briefed, roomier spacing (`.sheet.roomy`).
+- [web/resume/recent.webc](web/resume/recent.webc) — recent-weighted 2-page: roles ending
+  2020+ in full, 2014–2019 as one-liners, pre-2014 collapsed to an "Earlier:" line.
 - [web/style/resume.css](web/style/resume.css) — every visual decision + the screen/print
   and pagination rules.
 - [src/transforms/bullets.js](src/transforms/bullets.js) — highlights array
   (`string | {text, children}`) → nested `<ul>`. [jobHeader.js](src/transforms/jobHeader.js)
-  — a work entry's role(s) → styled `<h3>` line(s). Both registered in
+  — a work entry's role(s) → styled `<h3>` line(s).
+  [recencyYear.js](src/transforms/recencyYear.js) — a job's most-recent end year, for
+  weighting/thinning roles in variants. All registered in
   [eleventy.config.js](eleventy.config.js) and unit-tested inline.
 - [web/index.md](web/index.md) + [simple.layout.html](web/_includes/simple.layout.html) —
   the landing page.
@@ -97,6 +103,9 @@ Durable fragments + AI-powered composition. Status:
   retired; styling stays in plain CSS.
 - ✅ **Retired the file-based variant surface** (`var/*` + its render/PDF machinery) —
   tailored résumés are generated on demand, not kept as duplicated files.
+- ✅ **Variant _views_** (comprehensive 3-page, recent-weighted 2-page) as data-driven
+  templates over the one source — density/selection only, never duplicated content. Add
+  more views the same way; posting-specific tailoring still happens on demand.
 - ▢ **Tailoring** ("posting → tailored variant") and **data upkeep** (LinkedIn / current
   work) are handled **conversationally, on demand** — Adam updates rarely, so there is no
   standing workflow/automation to build.
