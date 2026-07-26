@@ -59,7 +59,7 @@ jobTitle: Full Stack Web Architect
         @html="e.credential + ' <em>from</em> ' + e.institution + ' <em>in</em> ' + e.year"
       ></li>
       <li
-        @html="'Certifications: ' + resume.certifications.map(c => c.name + ' <em>in</em> ' + c.year).join(', ')"
+        @html="'Certifications: ' + resume.certifications.map(g => g.names.join(', ') + ' <em>in</em> ' + g.year).join(', ')"
       ></li>
     </ul>
   </section>

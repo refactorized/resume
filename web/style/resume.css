@@ -91,7 +91,7 @@ h2:first-child {
 /* ── Employment history (detailed) ──────────────────────────────────────── */
 .job {
   break-inside: avoid; /* keep a job together across page breaks */
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 .job-title {
   font-weight: var(--fw-bold);

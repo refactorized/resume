@@ -15,6 +15,7 @@
 basics:
   name: Adam Tolley
   headline: Full Stack Web Architect # canonical résumé title
+  location: Middletown, Maryland # from LinkedIn
   titles: # alternates, for tailoring to a posting
     - Full Stack Web Architect
     - Senior Software Engineer
@@ -91,11 +92,12 @@ education:
     year: 2004
 
 certifications:
-  # ⚑ acronym was "CSA" in some files; Certified ScrumMaster is "CSM" — using CSM.
-  - { name: Certified ScrumMaster (CSM), year: 2013 }
-  - { name: MCSE, year: 2000 }
-  - { name: A+, year: 2000 }
-  - { name: Net+, year: 2000 }
+  # LinkedIn confirms Certified ScrumMaster / Scrum Alliance (CSM). All kept; the three
+  # from 2000 are grouped so they render "MCSE, A+, Net+ in 2000".
+  - year: 2013
+    names: [Certified ScrumMaster (CSM)]
+  - year: 2000
+    names: [MCSE, A+, Net+]
 
 # Reverse-chronological. Per-entry visibility knobs (all optional):
 #   contract: true       → surfaces a "(contract)" tag
@@ -116,12 +118,13 @@ work:
 
   - company: Independent Consultant
     roles:
-      - { as: Consultant, from: May 2023, to: Oct 2024 }
-    tags: [consulting, web-components, prototyping, research]
+      - { as: Web Application Architect, from: May 2023, to: Oct 2024 }
+    tags: [consulting, react, aws, startups, state-management]
     highlights:
-      - Delivered critical fixes and optimizations helping Spectra launch their initial prototype
-      - Provided technical guidance to overseas developers assisting with the Spectra prototype
-      - Conducted research into various platform-native web component frameworks and design approaches
+      - Advised start-ups on full-stack React application architecture and deployment
+      - Managed AWS deployments — Amplify, Cognito, Lambda, and Elastic Beanstalk — for client applications
+      - Applied signal/atom-based state management to extend application logic with minimal impact to existing code
+      - Delivered critical fixes and technical guidance that helped Spectra launch their initial prototype, leading to a full-time role
 
   - company: HZ Design Group
     roles:
@@ -191,7 +194,7 @@ work:
   - company: NGP VAN
     roles:
       - { as: Software Engineer, from: Jan 2014, to: Feb 2015 }
-    tags: [performance, data, export]
+    tags: [data, export, dotnet, mvc]
     highlights:
       - Developed an in-house CSV record export system which increased export capacity by an order of magnitude
 
@@ -220,18 +223,18 @@ work:
     contract: true
     roles:
       - { as: Front End Developer, from: Nov 2012, to: Feb 2013 }
-    tags: [node, express, mocha, responsive]
+    tags: [node, express, mocha, php, responsive]
     highlights:
       - Developed an internal blog migration tool using Node.js, Express, and Mocha
-      - Implemented responsive layouts from scratch and with specialized frameworks
+      - Implemented responsive HTML5/CSS3/JS layouts, paired with PHP and Node.js
 
-  - company: Applied Information Systems
+  - company: Applied Information Sciences
     onePager: false
     roles:
       - { as: Software Engineer, from: Sep 2010, to: Nov 2012 }
     tags: [fullstack, testing, advocacy]
     highlights:
-      - Collaborated on the full-stack architecture of a web-based print archive for Vogue and Playboy magazines
+      - Collaborated on the full-stack architecture of an HTML5 magazine archive viewer for the digital archives of Vogue, Rolling Stone, and Playboy
       - Championed adoption of modern, open web technologies amidst a Microsoft-centric firm
       - Introduced unit testing techniques to the team, providing the leadership and guidance necessary to drive adoption
 
@@ -239,18 +242,19 @@ work:
     onePager: false
     roles:
       - { as: Software Engineer, from: Jul 2009, to: Sep 2010 }
-    tags: [saas, testing, tdd]
+    tags: [testing, tdd, telecom]
     highlights:
-      - Provided web development expertise, supporting our transition from desktop applications to online SaaS offerings
+      - Built testing and reporting software for mobile-phone quality testing
       - Used unit tests, automated integration tests, and TDD to maintain full code coverage for existing products
 
   - company: Experient Inc
     onePager: false
     roles:
       - { as: Programmer Analyst, from: Sep 2008, to: Jul 2009 }
-    tags: [css, html]
+    tags: [aspnet, csharp, mssql, css, html]
     highlights:
-      - Specialized in improving the CSS and XHTML aspects of our internal codebase
+      - Built customized trade-show registration and management interfaces with ASP.NET, MS SQL, and C#
+      - Improved the CSS and XHTML aspects of our internal codebase
 
   - company: The IRIS Inc.
     onePager: false
@@ -263,6 +267,18 @@ work:
 # Durable voice / tone assets (from the archive plaintext résumé). Rarely printed,
 # but valuable for keeping tailored copy in Adam's own register.
 voice:
+  # First-person "About", verbatim from LinkedIn — Adam's own register, for tailoring copy.
+  about: >-
+    With 15+ years in web applications development, I am a full-stack polyglot with an
+    affinity for javascript and front-end work. I have experience across several major
+    platforms, most recently node stacks running in fully open source toolchains.
+
+
+    I am driven by a love for my craft and the desire to write conscientious code that
+    emphasizes ease of maintenance, reuse, composability and testability. I try to learn as
+    much as possible and I am happiest when solving problems that demand intelligence,
+    creativity, and a knack for functional decomposition. I also enjoy instructing and
+    mentoring in software development, and have done so professionally.
   intro: >-
     Seasoned software engineer with experience across a broad variety of platforms and
     paradigms; provided technical leadership and innovation as architect of multiple
