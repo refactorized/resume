@@ -1,0 +1,109 @@
+---
+layout: shell.webc
+jobTitle: Senior Frontend Engineer
+---
+
+<!--
+  DOCUMENT OBJECT — a frozen, AI-assembled résumé instance (an EXAMPLE).
+
+  - Content below is baked in as literal markup: NO resume.yaml references, so this
+    file renders identically forever, independent of future source edits. It is a
+    snapshot of what was assembled for one target.
+  - Facts are sourced from resume.yaml; only selection, ordering, emphasis, and prose
+    are the assembly's (AI's) latitude. Nothing here is invented.
+  - Identity/contact fall through to resume.basics via the shell; the tailored jobTitle
+    is baked in front matter.
+  - Regenerate with the tailor-resume skill — do NOT hand-maintain.
+
+  Target: Senior Frontend Engineer / design systems.
+-->
+
+<section class="summary">
+  <h2>Frontend Engineer &amp; Design-Systems Builder</h2>
+  <p>
+    Full-stack polyglot with 15+ years building web applications, happiest at the front
+    end — component architecture, design systems, and the developer experience that keeps
+    them consistent as teams and codebases scale.
+  </p>
+  <p>
+    My best work turns fuzzy design intent into composable, testable systems: design
+    tokens over pixel-perfect comps, reusable components over one-off screens.
+  </p>
+</section>
+
+<section class="skills">
+  <h2>Core Skills</h2>
+  <ul class="skills-list">
+    <li>React, Next.js, Web Components, Lit, Stencil.js, TypeScript, JavaScript</li>
+    <li>Design systems, design tokens, component libraries, accessibility (a11y, WCAG)</li>
+    <li>CSS, SCSS, Styled Components, Emotion, CSS-in-JS, vanilla-extract, SVG</li>
+    <li>SSR/SSG, island architecture, JAM stack, Node.js, GraphQL, REST</li>
+    <li>Testing: Jest, Playwright, Puppeteer, TDD; DX, code review, mentorship</li>
+  </ul>
+</section>
+
+<section class="history">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <h3 class="job-title">
+      Spectra Media Collective <em>as</em> Development Lead <em>from</em> Nov 2024
+      <em>onward</em>
+    </h3>
+    <ul>
+      <li>Leading an in-vivo re-architecture of Spectra.theater toward a reusable component system with design tokens and mobile-first layouts</li>
+      <li>Driving frontend best practices — component reuse, consistent sizing and spacing — across the team</li>
+      <li>Building AI-assisted interfaces over a large catalogue of theatrical performance data</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Independent Consultant <em>as</em> Web Application Architect <em>from</em> May 2023
+      <em>to</em> Oct 2024
+    </h3>
+    <ul>
+      <li>Advised start-ups on full-stack React architecture, component structure, and AWS deployment</li>
+      <li>Applied signal/atom-based state management to extend application logic with minimal churn to existing code</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      HZ Design Group <em>as</em> Principal Architect <em>from</em> Apr 2022 <em>to</em> May 2023
+    </h3>
+    <h3 class="job-title">
+      HZ Design Group <em>as</em> Senior Software Engineer <em>from</em> Feb 2020 <em>to</em> Apr 2022
+    </h3>
+    <ul>
+      <li>Designed and built HZ Platform — a Next.js/TypeScript metaframework pairing a structured-content CMS (sanity.io) with familiar page-building</li>
+      <li>Augmented CSS-in-JS with composable utility functions; drove design-token adoption over pixel-perfect comps for more flexible, responsive UIs</li>
+      <li>Championed Design–Dev collaboration through shared practices and terminology</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Frederick Mutual Insurance <em>as</em> Senior Software Engineer <em>from</em> May 2019
+      <em>to</em> Jan 2020
+    </h3>
+    <ul>
+      <li>Prototyped the front-end architecture for a policy-management product suite</li>
+      <li>Built a React/Redux framework for dynamically generating deeply-nested, schema-defined web forms</li>
+    </ul>
+  </div>
+
+  <p class="earlier">
+    <em>Earlier:</em> Washington Post · DivvyCloud · Decisive Communications · NGP VAN ·
+    Marriott · Unison · Applied Information Sciences — front-end and full-stack roles
+    across Angular, Node, and vanilla JS/CSS.
+  </p>
+</section>
+
+<section class="education">
+  <h2>Education</h2>
+  <ul>
+    <li>BS in Computer Science <em>from</em> Hood College <em>in</em> 2008</li>
+    <li>Certifications: Certified ScrumMaster (CSM) <em>in</em> 2013</li>
+  </ul>
+</section>

@@ -5,6 +5,7 @@ import { mkdirp } from 'mkdirp'
 import { program } from 'commander'
 import { Chalk } from 'chalk'
 import path from 'path'
+import fs from 'fs'
 
 program
   .option('--skip-pdf', 'build the site but skip all PDF rendering', false)
@@ -42,6 +43,19 @@ const jobs = [
   [`${webRootUrl}/resume/comprehensive/`, `${webFileRoot}/resume-comprehensive.pdf`],
   [`${webRootUrl}/resume/recent/`, `${webFileRoot}/resume-recent.pdf`],
 ]
+
+// AI-generated document objects (web/resume/generated/<slug>.webc) → one PDF each
+const genDir = `${webFileRoot}/resume/generated`
+if (fs.existsSync(genDir)) {
+  for (const slug of fs.readdirSync(genDir).sort()) {
+    if (fs.existsSync(path.join(genDir, slug, 'index.html'))) {
+      jobs.push([
+        `${webRootUrl}/resume/generated/${slug}/`,
+        `${webFileRoot}/resume-${slug}.pdf`,
+      ])
+    }
+  }
+}
 
 await elly.serve(port)
 

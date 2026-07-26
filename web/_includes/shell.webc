@@ -1,0 +1,39 @@
+---
+# Shared render shell for every résumé — live views and frozen document objects alike.
+# Owns the deterministic frame: <head>, the .sheet page box, the name/title header,
+# and the contact footer. Page content is injected where `content` is rendered.
+#
+# Identity is taken from front matter when present (so a generated document object can
+# BAKE it in and stay self-contained) and otherwise falls back to resume.basics (so the
+# live views stay single-sourced). `variant` adds a modifier class (e.g. "roomy").
+---
+<head>
+  <meta charset="utf-8" webc:keep />
+  <link webc:keep rel="preconnect" href="https://fonts.googleapis.com" />
+  <link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    webc:keep
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet"
+  />
+  <link webc:keep href="/style/reset.css" rel="stylesheet" />
+  <link webc:keep href="/style/resume.css" rel="stylesheet" />
+  <title
+    @text="(fullName || resume.basics.name) + ' — ' + (jobTitle || resume.basics.headline)"
+  ></title>
+</head>
+
+<div :class="variant ? 'sheet ' + variant : 'sheet'">
+  <header class="cv-header">
+    <div class="name" @text="fullName || resume.basics.name"></div>
+    <div class="title" @text="jobTitle || resume.basics.headline"></div>
+  </header>
+
+  <main @html="content"></main>
+
+  <footer class="cv-contact">
+    <span @text="email || resume.basics.email"></span>
+    <span @text="github || resume.basics.links.github"></span>
+    <span @text="linkedin || resume.basics.links.linkedin"></span>
+  </footer>
+</div>

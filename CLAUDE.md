@@ -20,25 +20,32 @@ own résumé. ESM (`"type": "module"`).
 
 ## Architecture
 
+Three layers — determinism at the two ends, AI judgment only in the middle:
+
 ```
-web/_data/resume.yaml   ← the ONLY place content lives: basics, summary, skills,
-   │                       highlights, education, certifications, work[] (per-role
-   │                       highlights + tags), voice
-   ▼
-WebC page templates      index.webc (one-pager)    full.webc (everything, 2pg)
-   │  loop resume.*       comprehensive.webc (3pg)  recent.webc (recent-weighted, 2pg)
-   │  + filters: bullets(), jobHeader(), recencyYear()
-   ▼
-web/style/resume.css     all look & feel + CSS-flow pagination
-   ▼
-live HTML   and/or   Puppeteer print → PDF   (src/build.js)
+SOURCE (deterministic)   web/_data/resume.yaml   facts + preferred prose + flags
+
+ASSEMBLE — two ways:
+  • live views (loop resume.*)     index / full / recent / comprehensive .webc
+                                    always-current defaults
+  • tailor-resume SKILL (AI glue)  → frozen DOCUMENT OBJECT
+                                    web/resume/generated/<slug>.webc (content baked in)
+
+RENDER (deterministic)
+  shell   web/_includes/shell.webc   head · .sheet · header · footer, shared by all
+  style   web/style/resume.css       type, geometry, CSS-flow pagination
+  print   src/build.js               Puppeteer → one PDF per view / object
+  filters bullets(), jobHeader(), recencyYear()
 ```
 
+- **Live views** loop `resume.*` and always reflect current data. **Document objects** are
+  AI-assembled snapshots with content baked in as literal markup (no `resume.*` refs) —
+  frozen, tailored, regenerated (never hand-edited). Both wrap their content in the shared
+  `shell.webc` and are styled only by `resume.css`.
 - Rendering is deterministic and CSS-driven. **Pagination is automatic**: content flows,
-  the browser breaks pages, and `break-inside: avoid` on `.job` keeps each role block
-  whole. There is no manual page splitting.
-- `src/build.js` uses 11ty's programmatic API + Puppeteer to print `/resume/` →
-  `resume.pdf` and `/resume/full/` → `resume-full.pdf`.
+  the browser breaks pages, `break-inside: avoid` on `.job` keeps each role whole.
+- `src/build.js` (11ty programmatic API + Puppeteer) prints the four live views plus every
+  `web/resume/generated/*` document object — one PDF each.
 
 ## Key files
 
@@ -55,6 +62,10 @@ live HTML   and/or   Puppeteer print → PDF   (src/build.js)
   `voice.about` profile intro, every role un-briefed, roomier spacing (`.sheet.roomy`).
 - [web/resume/recent.webc](web/resume/recent.webc) — recent-weighted 2-page: roles ending
   2020+ in full, 2014–2019 as one-liners, pre-2014 collapsed to an "Earlier:" line.
+- [web/_includes/shell.webc](web/_includes/shell.webc) — shared render shell (layout):
+  `<head>`, `.sheet`, name/title header, contact footer. Identity from front matter, else
+  falls back to `resume.basics`; `variant: roomy` adds spacing. Every view and document
+  object wraps its content in it, so the content files carry no boilerplate.
 - [web/style/resume.css](web/style/resume.css) — every visual decision + the screen/print
   and pagination rules.
 - [src/transforms/bullets.js](src/transforms/bullets.js) — highlights array
@@ -65,6 +76,11 @@ live HTML   and/or   Puppeteer print → PDF   (src/build.js)
   [eleventy.config.js](eleventy.config.js) and unit-tested inline.
 - [web/index.md](web/index.md) + [simple.layout.html](web/_includes/simple.layout.html) —
   the landing page.
+- [web/resume/generated/](web/resume/generated/) — **document objects**: frozen,
+  AI-assembled résumés with content baked in (see `example-frontend.webc`). `src/build.js`
+  auto-discovers them → `resume-<slug>.pdf`. Generate with the **tailor-resume** skill
+  ([.claude/skills/tailor-resume/SKILL.md](.claude/skills/tailor-resume/SKILL.md)) —
+  regenerate, never hand-edit.
 
 ## Conventions
 
@@ -106,8 +122,9 @@ Durable fragments + AI-powered composition. Status:
 - ✅ **Variant _views_** (comprehensive 3-page, recent-weighted 2-page) as data-driven
   templates over the one source — density/selection only, never duplicated content. Add
   more views the same way; posting-specific tailoring still happens on demand.
-- ▢ **Tailoring** ("posting → tailored variant") and **data upkeep** (LinkedIn / current
-  work) are handled **conversationally, on demand** — Adam updates rarely, so there is no
-  standing workflow/automation to build.
+- ✅ **Tailoring** ("posting → tailored résumé") is the **tailor-resume** skill: AI
+  assembles a frozen document object from the source, the deterministic shell/CSS render it.
+- ▢ **Data upkeep** (LinkedIn / current work) stays **conversational, on demand** — Adam
+  updates rarely, so there is no standing automation to build.
 - A tags/skills taxonomy accrues lazily; a future interactive web résumé is a *payoff* of
   accumulated structure, not a prerequisite.

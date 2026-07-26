@@ -1,79 +1,53 @@
 ---
+layout: shell.webc
 jobTitle: Full Stack Web Architect
 ---
 
-<head>
-  <meta charset="utf-8" webc:keep />
-  <link webc:keep rel="preconnect" href="https://fonts.googleapis.com" />
-  <link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    webc:keep
-    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet"
-  />
-  <link webc:keep href="/style/reset.css" rel="stylesheet" />
-  <link webc:keep href="/style/resume.css" rel="stylesheet" />
-  <title @text="resume.basics.name + ' — ' + jobTitle"></title>
-</head>
+<section class="summary">
+  <h2 @text="resume.summary.headline"></h2>
+  <p webc:for="para of resume.summary.paragraphs" @text="para"></p>
+</section>
 
-<div class="sheet">
-  <header class="cv-header">
-    <div class="name" @text="resume.basics.name"></div>
-    <div class="title" @text="jobTitle"></div>
-  </header>
+<section class="skills">
+  <h2>Skills and Experience Across the Entire Stack</h2>
+  <ul class="skills-list">
+    <li webc:for="g of resume.skills.filter(g => !g.subtle)" @html="g.items.join(', ')"></li>
+    <li class="subtle" webc:for="g of resume.skills.filter(g => g.subtle)" @html="g.items.join(', ')"></li>
+  </ul>
+</section>
 
-  <section class="summary">
-    <h2 @text="resume.summary.headline"></h2>
-    <p webc:for="para of resume.summary.paragraphs" @text="para"></p>
-  </section>
+<section class="highlights">
+  <h2>Career Highlights</h2>
+  <div @html="bullets(resume.highlights)"></div>
+</section>
 
-  <section class="skills">
-    <h2>Skills and Experience Across the Entire Stack</h2>
-    <ul class="skills-list">
-      <li webc:for="g of resume.skills.filter(g => !g.subtle)" @html="g.items.join(', ')"></li>
-      <li class="subtle" webc:for="g of resume.skills.filter(g => g.subtle)" @html="g.items.join(', ')"></li>
-    </ul>
-  </section>
+<section class="history">
+  <h2>Employment History</h2>
+  <table>
+    <tbody>
+      <tr
+        webc:for="row of resume.work.filter(j => j.onePager !== false && j.emphasis !== 'omit').flatMap(j => j.roles.map(r => ({ company: j.company, contract: j.contract, as: r.as, from: r.from, to: r.to })))"
+      >
+        <td @text="row.company"></td>
+        <td @html="row.as + (row.contract ? ' <em>(contract)</em>' : '')"></td>
+        <td
+          class="dates"
+          @html="row.from + ' – ' + (row.to === 'present' ? 'present' : row.to)"
+        ></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-  <section class="highlights">
-    <h2>Career Highlights</h2>
-    <div @html="bullets(resume.highlights)"></div>
-  </section>
-
-  <section class="history">
-    <h2>Employment History</h2>
-    <table>
-      <tbody>
-        <tr
-          webc:for="row of resume.work.filter(j => j.onePager !== false && j.emphasis !== 'omit').flatMap(j => j.roles.map(r => ({ company: j.company, contract: j.contract, as: r.as, from: r.from, to: r.to })))"
-        >
-          <td @text="row.company"></td>
-          <td @html="row.as + (row.contract ? ' <em>(contract)</em>' : '')"></td>
-          <td
-            class="dates"
-            @html="row.from + ' – ' + (row.to === 'present' ? 'present' : row.to)"
-          ></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="education">
-    <h2>Education</h2>
-    <ul>
-      <li
-        webc:for="e of resume.education"
-        @html="e.credential + ' <em>from</em> ' + e.institution + ' <em>in</em> ' + e.year"
-      ></li>
-      <li
-        @html="'Certifications: ' + resume.certifications.map(g => g.names.join(', ') + ' <em>in</em> ' + g.year).join(', ')"
-      ></li>
-    </ul>
-  </section>
-
-  <footer class="cv-contact">
-    <span @text="resume.basics.email"></span>
-    <span @text="resume.basics.links.github"></span>
-    <span @text="resume.basics.links.linkedin"></span>
-  </footer>
-</div>
+<section class="education">
+  <h2>Education</h2>
+  <ul>
+    <li
+      webc:for="e of resume.education"
+      @html="e.credential + ' <em>from</em> ' + e.institution + ' <em>in</em> ' + e.year"
+    ></li>
+    <li
+      @html="'Certifications: ' + resume.certifications.map(g => g.names.join(', ') + ' <em>in</em> ' + g.year).join(', ')"
+    ></li>
+  </ul>
+</section>
