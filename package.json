@@ -7,7 +7,7 @@
     "test": "echo 'ALL ZERO(0) TESTS PASSED!!!'",
     "serve": "eleventy --serve",
     "dev": "rimraf _site; eleventy --serve",
-    "build-all": "rimraf  _build _site; node src/build.js --pdfs",
+    "build-all": "rimraf _build _site; node src/build.js",
     "build": "node src/build.js"
   },
   "keywords": [],

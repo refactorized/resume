@@ -12,10 +12,9 @@ own résumé. ESM (`"type": "module"`).
 - `npm run build` — `node src/build.js`: builds the site, then prints the one-page résumé
   (`/resume/`) → `_site/resume.pdf` and the full résumé (`/resume/full/`) →
   `_site/resume-full.pdf`.
-- `npm run build-all` — clean + `node src/build.js --pdfs`: additionally prints every
-  `pdf`-tagged page (the `resume/var/*` variants) to `_build/pdf/*.pdf`, via the manifest
-  at `_site/pdf/pdf.json`.
-- `build.js` flags: `--pdfs`, `--skip-pdf`, `--port <n>` (default 3927), `--wait`, `-q`,
+- `npm run build-all` — clean rebuild: `rimraf _build _site` then `node src/build.js`
+  (produces the same two PDFs as `build`, from scratch).
+- `build.js` flags: `--skip-pdf`, `--port <n>` (default 3927), `--wait`, `-q`,
   `--no-color`. Puppeteer downloads its own Chromium on `npm install`; PDF builds boot an
   internal server on :3927 and end via `process.exit(0)`.
 
@@ -38,8 +37,8 @@ live HTML   and/or   Puppeteer print → PDF   (src/build.js)
 - Rendering is deterministic and CSS-driven. **Pagination is automatic**: content flows,
   the browser breaks pages, and `break-inside: avoid` on `.job` keeps each role block
   whole. There is no manual page splitting.
-- `src/build.js` (unchanged) uses 11ty's programmatic API + Puppeteer. Variant URLs come
-  from `web/resume/pdf/index.11ty.js`, which emits `/pdf/pdf.json` (all `pdf`-tagged pages).
+- `src/build.js` uses 11ty's programmatic API + Puppeteer to print `/resume/` →
+  `resume.pdf` and `/resume/full/` → `resume-full.pdf`.
 
 ## Key files
 
@@ -60,10 +59,6 @@ live HTML   and/or   Puppeteer print → PDF   (src/build.js)
   [eleventy.config.js](eleventy.config.js) and unit-tested inline.
 - [web/index.md](web/index.md) + [simple.layout.html](web/_includes/simple.layout.html) —
   the landing page.
-- **Legacy:** [web/_includes/resume.html](web/_includes/resume.html) +
-  [web/resume/var/](web/resume/var/) (`acuity.md`, `kf.md`) are the old tailored variants —
-  self-contained markdown that still **duplicates** content. Regenerate them from
-  `resume.yaml` or retire them; do not treat them as a source.
 
 ## Conventions
 
@@ -100,7 +95,8 @@ Durable fragments + AI-powered composition. Status:
   consolidated into one.
 - ✅ **Data-driven render layer** with automatic CSS pagination — manual page-splitting
   retired; styling stays in plain CSS.
-- ▢ Retire or regenerate the legacy `var/*` tailored variants from `resume.yaml`.
+- ✅ **Retired the file-based variant surface** (`var/*` + its render/PDF machinery) —
+  tailored résumés are generated on demand, not kept as duplicated files.
 - ▢ **Tailoring** ("posting → tailored variant") and **data upkeep** (LinkedIn / current
   work) are handled **conversationally, on demand** — Adam updates rarely, so there is no
   standing workflow/automation to build.
