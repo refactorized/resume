@@ -1,0 +1,279 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SINGLE SOURCE OF TRUTH for Adam Tolley's résumé.
+#
+# Everything — screen, PDF, and tailored variants — should derive from this file.
+# Author it by hand, or let Claude maintain it (LinkedIn / current-work ingest).
+# Consolidated from: _data/jobs.yaml, resume/index.md, parts/*, resume/var/*, and
+# the archive plaintext résumé. Light copyedits applied (e.g. "MV VM" → "MVVM").
+#
+# It lives in web/_data/ so 11ty exposes it as the global `resume` immediately.
+# It's just a YAML file — trivial to relocate if the renderer changes later.
+#
+# ⚑ = a reconciled discrepancy worth a human glance (see chat summary).
+# ─────────────────────────────────────────────────────────────────────────────
+
+basics:
+  name: Adam Tolley
+  headline: Full Stack Web Architect # canonical résumé title
+  titles: # alternates, for tailoring to a posting
+    - Full Stack Web Architect
+    - Senior Software Engineer
+    - Web Application Architect
+    - Development Lead
+  email: adam.tolley+jobs@gmail.com
+  links:
+    linkedin: linkedin.com/in/adamtolley
+    github: github.com/refactorized
+
+summary:
+  headline: Web Platform Practitioner
+  paragraphs:
+    - >-
+      My career comprises over a decade of modern web development with HTML, CSS,
+      and JavaScript.
+    - >-
+      As web development has evolved from statically served pages, to client-heavy
+      SPAs, to full-stack hybrid client/server applications I have continuously
+      broadened and deepened my skill set.
+    - >-
+      A problem solver first, my best work has been in creating solutions that boost
+      developer effectiveness, code reusability, and cross-department collaboration.
+
+# Grouped so tailoring can pick relevant clusters. The current one-pager renders
+# these as flat bullets; groups are for authoring, tagging, and future selection.
+skills:
+  - group: Frameworks
+    items: [Next.js, React, Web Components, Lit, Stencil.js, 11ty, Astro]
+  - group: Languages
+    items: [JavaScript, TypeScript, C#, Python, shell scripting, functional programming]
+  - group: Data & APIs
+    items: [SQL, GraphQL, REST APIs, JSON, sanity.io, Contentful, headless CMS]
+  - group: Styling
+    items: [HTML, CSS, SCSS, SVG, Styled Components, Emotion, CSS-in-JS, vanilla-extract]
+  - group: Architecture
+    items: [Node.js, JAM stack, SSR, SSG, island architecture, SPA, PWA, MVC, MVVM, "MV*"]
+  - group: Cloud & Infra
+    items: [AWS, Lambda, S3, EC2, Elastic Beanstalk, Amplify, Cognito, Netlify, microservices]
+  - group: Process
+    items: [git, SCM, Agile, DX, code review, Scrum, mentorship, best practices]
+  - group: Testing
+    items: [unit testing, integration testing, Jest, Mocha, TDD, automation, Puppeteer, Playwright]
+  - group: Design
+    items: [design systems, design tokens, accessibility, a11y, WCAG, UX/UI, user studies]
+  # Adam is genuinely excellent at naming; cache invalidation remains eternally hard.
+  - group: Also
+    subtle: true # render quietly — it's a wink, not a headline
+    items: [naming things, cache invalidation]
+
+# Career-level, cross-role accomplishments — used on the one-pager.
+# A highlight is either a string, or { text, children: [...] } for nesting.
+highlights:
+  - >-
+    Championed greater collaboration between Design and Development teams by
+    establishing common practices, terminology, and workflows between departments
+  - text: >-
+      Designed and led development of an in-house hybrid SSG/SSR JAM stack web
+      metaframework which:
+    children:
+      - Enables familiar page-building paradigms within a more flexible structured content CMS (sanity.io)
+      - Augments common CSS-in-JS frameworks with a set of composable utility functions
+      - Maps deeply nested backend data to explicit TypeScript objects using recursive type generics
+  - >-
+    Created data-driven React/Redux tooling capable of generating complex, dynamic
+    web forms for manipulating deeply nested data defined via JSON schemas
+
+education:
+  - credential: BS in Computer Science
+    institution: Hood College
+    year: 2008
+  - credential: AS in Computer Science
+    institution: Frederick Community College
+    year: 2004
+
+certifications:
+  # ⚑ acronym was "CSA" in some files; Certified ScrumMaster is "CSM" — using CSM.
+  - { name: Certified ScrumMaster (CSM), year: 2013 }
+  - { name: MCSE, year: 2000 }
+  - { name: A+, year: 2000 }
+  - { name: Net+, year: 2000 }
+
+# Reverse-chronological. Per-entry visibility knobs (all optional):
+#   contract: true       → surfaces a "(contract)" tag
+#   emphasis: brief       → detailed history shows one line, no bullets (keeps timeline)
+#   emphasis: omit        → kept as record, never rendered by default (AI can still pull it)
+#   onePager: false       → excluded from the compact one-pager (still in the full résumé)
+# tags[] are AI-seeded for future filtering / an interactive résumé — refine freely.
+work:
+  - company: Spectra Media Collective
+    roles:
+      - { as: Development Lead, from: Nov 2024, to: present }
+    tags: [leadership, architecture, aws, ai, design-systems, web-components]
+    highlights:
+      - Leading the in-vivo re-architecture and development of Spectra.theater, our main product
+      - Inculcating best practices like component reuse, design tokens, and mobile-first design
+      - Researching and developing AI interfaces to our vast catalogue of theatrical performance data
+      - Managing build, deployment, and data infrastructure on AWS
+
+  - company: Independent Consultant
+    roles:
+      - { as: Consultant, from: May 2023, to: Oct 2024 }
+    tags: [consulting, web-components, prototyping, research]
+    highlights:
+      - Delivered critical fixes and optimizations helping Spectra launch their initial prototype
+      - Provided technical guidance to overseas developers assisting with the Spectra prototype
+      - Conducted research into various platform-native web component frameworks and design approaches
+
+  - company: HZ Design Group
+    roles:
+      - { as: Principal Architect, from: Apr 2022, to: May 2023 }
+      - { as: Senior Software Engineer, from: Feb 2020, to: Apr 2022 }
+    tags: [architecture, nextjs, typescript, jamstack, sanity, design-systems, leadership]
+    highlights:
+      - Championed greater Design and Dev team collaboration, instituting common practices and terminology
+      - text: >-
+          Built HZ Platform, a hybrid SSG/SSR JAM stack solution based on Next.js and
+          custom TypeScript tooling which:
+        children:
+          - Enables familiar page-building paradigms within a more flexible structured content CMS (sanity.io)
+          - Augments common CSS-in-JS frameworks with a set of composable utility functions
+          - Maps deeply nested backend data to explicit TypeScript objects via recursive generic type definitions
+
+  - company: Frederick Mutual Insurance
+    roles:
+      - { as: Senior Software Engineer, from: May 2019, to: Jan 2020 }
+    tags: [react, redux, forms, architecture, insurance]
+    highlights:
+      - Prototyped the front-end architecture for a policy management product suite
+      - Built a custom React/Redux framework for dynamically creating deeply-nested, schema-defined web forms
+
+  - company: Social Security Administration
+    contract: true
+    roles:
+      - { as: Developer, from: Jan 2019, to: May 2019 }
+    tags: [tooling, data, html, css, government]
+    highlights:
+      - Developed custom data transform and sync tooling to merge XLS-based workflows with JSON toolchains
+      - Improved authoring of HTML/CSS correspondence templates with flex-box extensions to our CSS system
+
+  - company: DivvyCloud
+    contract: true
+    emphasis: brief # short-lived; kept for 2018 timeline continuity, not featured
+    roles:
+      - { as: Senior Software Engineer, from: Apr 2018, to: Oct 2018 }
+    tags: [python, flask, angular, svg, dataviz]
+    highlights:
+      - Researched and guided framework component upgrades for our main Python Flask and Angular stack
+      - Built an SVG gauge component using JavaScript (and some math) to vastly outperform an existing wrappered d3.js library
+
+  - company: Washington Post
+    contract: true
+    roles:
+      - { as: Senior Software Engineer, from: Jan 2017, to: Jan 2018 }
+    tags: [angular, node, saas, design-systems, css]
+    highlights:
+      - Collaborated on an Angular and Node SaaS platform for editing and tracking news stories
+      - Extended a suite-wide, Bootstrap-style system with specialized input components built in pure CSS/SCSS
+
+  - company: Independent Contractor
+    roles:
+      - { as: Instructor and Consultant, from: Jan 2016, to: Jan 2017 }
+    tags: [teaching, javascript, fullstack]
+    highlights:
+      - Taught full-stack web development with a focus on client and server JavaScript frameworks
+
+  - company: Decisive Communications
+    roles:
+      - { as: Senior Software Engineer, from: Mar 2015, to: Jan 2016 }
+    tags: [angularjs, bootstrap, scss]
+    highlights:
+      - Modernized front-end architecture with AngularJS, Bootstrap, and a SASS/SCSS toolchain
+
+  - company: NGP VAN
+    roles:
+      - { as: Software Engineer, from: Jan 2014, to: Feb 2015 }
+    tags: [performance, data, export]
+    highlights:
+      - Developed an in-house CSV record export system which increased export capacity by an order of magnitude
+
+  - company: SocietyLab.org
+    emphasis: brief # founding side project; did not progress — record, not featured
+    onePager: false
+    note: dates overlap other roles (side project)
+    roles:
+      - { as: Founding Application Architect, from: Aug 2013, to: Jun 2016 }
+    tags: [node, dataviz, d3, side-project]
+    highlights:
+      - Built a custom Node, NeDB, Angular + D3.js web app to visualize articles as a force-directed graph of connected topics
+
+  - company: Marriott
+    contract: true
+    roles:
+      - { as: Front End Developer, from: Feb 2013, to: Dec 2013 }
+    tags: [ux, prototyping, user-testing, node]
+    highlights:
+      - Enhanced and maintained critical-path portions of the international reservations website
+      - Leveraged multivariate and interview-based user testing to define and verify development goals
+      - Worked closely with the design team to ideate, prototype, and execute UX concepts
+      - Assembled a collaborative, Node.js cloud-based toolchain to facilitate rapid UI/UX prototyping
+
+  - company: Unison Inc
+    contract: true
+    roles:
+      - { as: Front End Developer, from: Nov 2012, to: Feb 2013 }
+    tags: [node, express, mocha, responsive]
+    highlights:
+      - Developed an internal blog migration tool using Node.js, Express, and Mocha
+      - Implemented responsive layouts from scratch and with specialized frameworks
+
+  - company: Applied Information Systems
+    onePager: false
+    roles:
+      - { as: Software Engineer, from: Sep 2010, to: Nov 2012 }
+    tags: [fullstack, testing, advocacy]
+    highlights:
+      - Collaborated on the full-stack architecture of a web-based print archive for Vogue and Playboy magazines
+      - Championed adoption of modern, open web technologies amidst a Microsoft-centric firm
+      - Introduced unit testing techniques to the team, providing the leadership and guidance necessary to drive adoption
+
+  - company: Metrico Wireless
+    onePager: false
+    roles:
+      - { as: Software Engineer, from: Jul 2009, to: Sep 2010 }
+    tags: [saas, testing, tdd]
+    highlights:
+      - Provided web development expertise, supporting our transition from desktop applications to online SaaS offerings
+      - Used unit tests, automated integration tests, and TDD to maintain full code coverage for existing products
+
+  - company: Experient Inc
+    onePager: false
+    roles:
+      - { as: Programmer Analyst, from: Sep 2008, to: Jul 2009 }
+    tags: [css, html]
+    highlights:
+      - Specialized in improving the CSS and XHTML aspects of our internal codebase
+
+  - company: The IRIS Inc.
+    onePager: false
+    roles:
+      - { as: IT Admin & Technical Researcher, from: Jun 2000, to: Sep 2008 }
+    tags: [java, research, imaging]
+    highlights:
+      - Developed Java computed-tomography simulations, exploring and testing a novel image-acquisition technique
+
+# Durable voice / tone assets (from the archive plaintext résumé). Rarely printed,
+# but valuable for keeping tailored copy in Adam's own register.
+voice:
+  intro: >-
+    Seasoned software engineer with experience across a broad variety of platforms and
+    paradigms; provided technical leadership and innovation as architect of multiple
+    full-stack web solutions. A career spanning nearly two decades — from CGI gateways to
+    SPAs to JAM-stack — through every swing of the pendulum between client and server,
+    UX and DX, semantic and presentational CSS.
+  character:
+    - Has loved programming since 7th grade — learned BASIC from a math textbook on an IBM 8088
+    - Has loved JavaScript since 2012, after sitting down with "JavaScript, The Good Parts"
+    - Believes effective programming is discovering the boundary between innate and artificial complexity
+    - Believes empathy, humility, and curiosity are as essential as knowledge, intelligence, and experience
+    - Values diversity, equity, inclusivity, and accessibility
+    - Vastly prefers solving difficult problems to completing repetitive tasks
+    - Really likes bulleted lists (and parentheses)

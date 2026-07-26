@@ -1,5 +1,6 @@
 ---
 jobTitle: Full Stack Web Architect
+tags: pdf
 ---
 
 <head>
@@ -42,13 +43,20 @@ jobTitle: Full Stack Web Architect
 
   <section class="history">
     <h2>Employment History</h2>
-    <div
-      class="job"
-      webc:for="job of resume.work.filter(j => j.emphasis !== 'omit')"
-    >
-      <div @html="jobHeader(job)"></div>
-      <div webc:if="job.emphasis !== 'brief'" @html="bullets(job.highlights)"></div>
-    </div>
+    <table>
+      <tbody>
+        <tr
+          webc:for="row of resume.work.filter(j => j.onePager !== false && j.emphasis !== 'omit').flatMap(j => j.roles.map(r => ({ company: j.company, contract: j.contract, as: r.as, from: r.from, to: r.to })))"
+        >
+          <td @text="row.company"></td>
+          <td @html="row.as + (row.contract ? ' <em>(contract)</em>' : '')"></td>
+          <td
+            class="dates"
+            @html="row.from + ' – ' + (row.to === 'present' ? 'present' : row.to)"
+          ></td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section class="education">

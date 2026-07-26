@@ -1,4 +1,0 @@
-<div webc:for="job of jobs" @text="item">
-  <hr />
-  <pre>{{job | json }}</pre>
-</div>

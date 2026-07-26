@@ -1,0 +1,169 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Résumé styling — shared by the one-pager (/resume/) and full (/resume/full/).
+   Content is data-driven (web/_data/resume.yaml); THIS file owns all look & feel.
+
+   Pagination is automatic: content flows and the browser breaks pages at print
+   time. `break-inside: avoid` keeps each job intact — no more manual `---` /
+   HTML-comment page splitting.
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --page-width: 8.5in;
+  --page-height: 11in;
+  --margin-x: 0.9in;
+  --margin-top: 0.6in;
+  --margin-bot: 0.6in;
+
+  --text-lg: calc(9 / 8 * 1rem);
+  --text-sm: calc(7 / 8 * 1rem);
+  --fw-normal: 300;
+  --fw-bold: 600;
+
+  font-size: 13px;
+  font-family: 'Figtree', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: var(--fw-normal);
+  font-style: normal;
+}
+
+@page {
+  size: letter;
+  margin: var(--margin-top) var(--margin-x) var(--margin-bot);
+}
+
+body {
+  line-height: 1.2em;
+  font-weight: var(--fw-normal);
+}
+
+/* ── Screen: present as a document sheet on grey ────────────────────────── */
+@media screen {
+  body {
+    background-color: lightgrey;
+    padding: 0.5in 0;
+  }
+  .sheet {
+    background-color: white;
+    width: var(--page-width);
+    max-width: var(--page-width);
+    min-height: var(--page-height);
+    margin: 0 auto;
+    padding: var(--margin-top) var(--margin-x) var(--margin-bot);
+    box-shadow: 0 2px 12px #0003;
+  }
+}
+
+/* ── Header (name + title), once at the top ─────────────────────────────── */
+.cv-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+  font-weight: var(--fw-bold);
+  font-size: var(--text-lg);
+  margin-bottom: 1.2em;
+}
+.cv-header .name {
+  padding-right: 0.25rem;
+}
+.cv-header .title {
+  font-weight: var(--fw-normal);
+}
+
+/* ── Section headings ───────────────────────────────────────────────────── */
+h2 {
+  font-weight: var(--fw-bold);
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  break-after: avoid; /* never strand a heading at a page bottom */
+}
+h2:first-child {
+  margin-top: 0;
+}
+
+/* ── Employment history (detailed) ──────────────────────────────────────── */
+.job {
+  break-inside: avoid; /* keep a job together across page breaks */
+  margin-top: 1rem;
+}
+.job-title {
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+}
+.job-title + .job-title {
+  margin-top: 0; /* stacked roles at one company hug together */
+}
+.job-title em {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-normal);
+}
+
+/* ── Bullet lists ───────────────────────────────────────────────────────── */
+ul {
+  list-style: '- ' outside;
+  padding: 0;
+  margin-left: 0.6em;
+}
+li {
+  margin-top: 0.2em;
+}
+li ul {
+  margin-top: 0.2em;
+}
+li li {
+  padding-left: 0.6em;
+}
+li em {
+  font-size: var(--text-sm);
+}
+
+.skills-list li.subtle {
+  font-size: var(--text-sm);
+  opacity: 0.65;
+}
+
+/* ── Condensed employment table (one-pager) ─────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  display: none;
+}
+td {
+  font-size: 1rem;
+  padding-left: 1rem;
+  vertical-align: baseline;
+}
+td:first-child {
+  padding-left: 0;
+}
+td.dates {
+  text-align: right;
+  white-space: nowrap;
+}
+td em {
+  font-size: var(--text-sm);
+}
+
+/* ── Contact, at the end of the document ────────────────────────────────── */
+.cv-contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #0002;
+  font-size: var(--text-sm);
+}
+
+p {
+  margin: 0.5rem 0;
+}

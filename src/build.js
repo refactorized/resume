@@ -10,7 +10,7 @@ import path from 'path'
 program
   .option(
     '--skip-pdf',
-    'skip all pdf rendering, including root resume. overrides --all-pdfs',
+    'skip all pdf rendering, including root resume. overrides --pdfs',
     false,
   )
   .option('--pdfs', "locally render all pages with the 'pdf' tag", false)
@@ -44,6 +44,7 @@ const chalk = new Chalk({ level: noColor ? 0 : 1 })
 
 const webRootUrl = `http://localhost:${port}`
 const rootResumeUrl = `${webRootUrl}/resume/`
+const fullResumeUrl = `${webRootUrl}/resume/full/`
 
 // const webFileRoot = url.fileURLToPath(new URL('../_site', import.meta.url))
 const webFileRoot = '_site'
@@ -61,7 +62,10 @@ if (noPdf) {
 
 // include default root resume
 // job: [url, outPath]
-const jobs = [[rootResumeUrl, `${webFileRoot}/resume.pdf`]]
+const jobs = [
+  [rootResumeUrl, `${webFileRoot}/resume.pdf`],
+  [fullResumeUrl, `${webFileRoot}/resume-full.pdf`],
+]
 
 if (allPdfs) {
   const variantPath = /\/resume\/(.+|)\//

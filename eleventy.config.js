@@ -6,6 +6,8 @@ import yaml from 'js-yaml'
 import pages from './src/transforms/pages.js'
 import json from './src/transforms/json.js'
 import getChunk from './src/transforms/getChunk.js'
+import bullets from './src/transforms/bullets.js'
+import jobHeader from './src/transforms/jobHeader.js'
 
 import pluginWebc from '@11ty/eleventy-plugin-webc'
 
@@ -18,6 +20,12 @@ export default function (eleventyConfig) {
 
   // splits on a token (default: '\n---\n') and returns specific chunk
   eleventyConfig.addFilter('getChunk', getChunk)
+
+  // renders a highlights array (strings or {text, children}) into a nested <ul>
+  eleventyConfig.addFilter('bullets', bullets)
+
+  // renders a work entry's role heading(s) as styled <h3> lines
+  eleventyConfig.addFilter('jobHeader', jobHeader)
 
   // webc support
   eleventyConfig.addPlugin(pluginWebc, {
