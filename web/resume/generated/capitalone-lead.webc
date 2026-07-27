@@ -1,0 +1,196 @@
+---
+layout: shell.webc
+jobTitle: Lead Software Engineer
+---
+
+<!--
+  DOCUMENT OBJECT — frozen, AI-assembled résumé instance.
+  Content baked in as literal markup (no resume.yaml refs); regenerate, don't edit.
+  Facts sourced from resume.yaml only; nothing invented.
+
+  Target: Capital One — Lead / Senior Lead Engineer (recruiter email, Jul 2026).
+  Positioning (per resume.yaml `positioning`): LEAD with deep web-platform expertise and
+  AI-augmented development; do NOT lead with or claim Python/Java. Weighted also to their
+  cloud (AWS), developer-experience, and technical-leadership themes. Two pages.
+-->
+
+<section class="summary">
+  <h2>Lead Engineer — Web Platform &amp; AI-Augmented Development</h2>
+  <p>
+    Engineering lead with 15+ years of deep, hands-on web-platform expertise — HTML, CSS,
+    JavaScript/TypeScript, web components, browser APIs, performance, and the architecture
+    and design systems that hold large front ends together. As Development Lead at Spectra
+    Media Collective I own the product's re-architecture and its AWS infrastructure, and
+    I'm building AI-assisted interfaces over a large data catalogue.
+  </p>
+  <p>
+    I pair that platform depth with AI-augmented development — deep platform knowledge is
+    what turns AI coding from a shortcut into real leverage. My best work is composable,
+    testable systems, plus the developer experience and mentoring that keep teams fast.
+  </p>
+</section>
+
+<section class="skills">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    <li>Web platform: HTML, CSS, SCSS, SVG, Web Components, Lit, Stencil.js, accessibility (a11y/WCAG), performance</li>
+    <li>Frameworks &amp; architecture: React, Next.js, Astro, Node.js, SSR/SSG, island architecture, JAM stack, design systems, design tokens</li>
+    <li>AI-assisted product interfaces &amp; AI-augmented development; working with AI coding tools and agents</li>
+    <li>Languages: JavaScript, TypeScript, C#, shell scripting, functional programming — a polyglot's comfort picking up new languages and stacks quickly</li>
+    <li>Cloud &amp; delivery: AWS (Lambda, S3, EC2, Elastic Beanstalk, Amplify, Cognito), microservices, build &amp; deployment automation</li>
+    <li>TDD, Jest, Playwright, Puppeteer, automation; code review, mentorship, Agile/Scrum, DX</li>
+  </ul>
+</section>
+
+<section class="history">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <h3 class="job-title">
+      Spectra Media Collective <em>as</em> Development Lead <em>from</em> Nov 2024
+      <em>onward</em>
+    </h3>
+    <ul>
+      <li>Leading the in-vivo re-architecture of Spectra.theater toward a reusable component system with design tokens and mobile-first layouts</li>
+      <li>Designing and building AI-assisted interfaces over a large catalogue of theatrical performance data</li>
+      <li>Owning build, deployment, and data infrastructure on AWS; establishing engineering best practices and mentoring the team</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Independent Consultant <em>as</em> Web Application Architect <em>from</em> May 2023
+      <em>to</em> Oct 2024
+    </h3>
+    <ul>
+      <li>Advised start-ups on full-stack web architecture, component structure, and AWS deployment (Amplify, Cognito, Lambda, Elastic Beanstalk)</li>
+      <li>Applied signal/atom-based state management to extend application logic with minimal churn to existing code</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      HZ Design Group <em>as</em> Principal Architect <em>from</em> Apr 2022 <em>to</em> May 2023
+    </h3>
+    <h3 class="job-title">
+      HZ Design Group <em>as</em> Senior Software Engineer <em>from</em> Feb 2020 <em>to</em> Apr 2022
+    </h3>
+    <ul>
+      <li>Designed and led an in-house Next.js/TypeScript metaframework — internal tooling that gave product teams familiar page-building over a structured-content CMS (sanity.io)</li>
+      <li>Built composable developer utilities and drove design-token adoption for more flexible, maintainable UIs</li>
+      <li>Championed Design–Dev collaboration through shared practices and terminology</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Frederick Mutual Insurance <em>as</em> Senior Software Engineer <em>from</em> May 2019
+      <em>to</em> Jan 2020
+    </h3>
+    <ul>
+      <li>Prototyped the front-end architecture for a policy-management product suite</li>
+      <li>Built a React/Redux framework for dynamically generating deeply-nested, schema-defined web forms</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Social Security Administration <em>as</em> Developer <em>(contract)</em> <em>from</em> Jan 2019 <em>to</em> May 2019
+    </h3>
+    <ul>
+      <li>Developed custom data transform and sync tooling to merge XLS-based workflows with JSON toolchains</li>
+      <li>Improved authoring of HTML/CSS correspondence templates with flex-box extensions to a shared CSS system</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      DivvyCloud <em>as</em> Senior Software Engineer <em>(contract)</em> <em>from</em> Apr 2018 <em>to</em> Oct 2018
+    </h3>
+    <ul>
+      <li>Built an SVG gauge component in JavaScript (and some math) to vastly outperform an existing wrapped d3.js library</li>
+      <li>Researched and guided framework and component upgrades across the application's Angular front end</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Washington Post <em>as</em> Senior Software Engineer <em>(contract)</em> <em>from</em> Jan 2017 <em>to</em> Jan 2018
+    </h3>
+    <ul>
+      <li>Collaborated on an Angular and Node SaaS platform for editing and tracking news stories</li>
+      <li>Extended a suite-wide design system with specialized input components built in pure CSS/SCSS</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Independent Contractor <em>as</em> Instructor and Consultant <em>from</em> Jan 2016 <em>to</em> Jan 2017
+    </h3>
+    <ul>
+      <li>Taught full-stack web development with a focus on client and server JavaScript frameworks</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Decisive Communications <em>as</em> Senior Software Engineer <em>from</em> Mar 2015 <em>to</em> Jan 2016
+    </h3>
+    <ul>
+      <li>Modernized front-end architecture with AngularJS, Bootstrap, and a SASS/SCSS toolchain</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      NGP VAN <em>as</em> Software Engineer <em>from</em> Jan 2014 <em>to</em> Feb 2015
+    </h3>
+    <ul>
+      <li>Full-stack development on a campaign-finance and contact-management product</li>
+      <li>Built an in-house CSV export system that increased export capacity by an order of magnitude</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      SocietyLab.org <em>as</em> Founding Application Architect <em>from</em> Aug 2013 <em>to</em> Jun 2016
+    </h3>
+    <ul>
+      <li>Built a custom Node, NeDB, Angular + D3.js web app to visualize articles as a force-directed graph of connected topics</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Marriott <em>as</em> Front End Developer <em>(contract)</em> <em>from</em> Feb 2013 <em>to</em> Dec 2013
+    </h3>
+    <ul>
+      <li>Enhanced and maintained critical-path portions of the international reservations website</li>
+      <li>Assembled a collaborative, Node.js cloud-based toolchain to facilitate rapid UI/UX prototyping</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3 class="job-title">
+      Applied Information Sciences <em>as</em> Software Engineer <em>from</em> Sep 2010 <em>to</em> Nov 2012
+    </h3>
+    <ul>
+      <li>Collaborated on the full-stack architecture of an HTML5 magazine archive viewer for the digital archives of Vogue, Rolling Stone, and Playboy</li>
+      <li>Introduced unit testing to the team, providing the leadership and guidance to drive adoption</li>
+    </ul>
+  </div>
+
+  <p class="earlier">
+    <em>Earlier:</em> Unison · Metrico Wireless · Experient · The IRIS Inc. — front-end,
+    test automation, and early full-stack engineering.
+  </p>
+</section>
+
+<section class="education">
+  <h2>Education</h2>
+  <ul>
+    <li>BS in Computer Science <em>from</em> Hood College <em>in</em> 2008</li>
+    <li>AS in Computer Science <em>from</em> Frederick Community College <em>in</em> 2004</li>
+    <li>Certifications: Certified ScrumMaster (CSM) <em>in</em> 2013, MCSE, A+, Net+ <em>in</em> 2000</li>
+  </ul>
+</section>

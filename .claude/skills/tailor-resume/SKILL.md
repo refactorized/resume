@@ -32,8 +32,8 @@ From the user (ask only if missing and it matters):
 ## Process
 
 1. **Read the source.** Load `web/_data/resume.yaml` — it is the ONLY source of facts and
-   the canonical ("preferred") prose. Also skim `voice.about` / `voice.character` to match
-   Adam's register.
+   the canonical ("preferred") prose. Read `positioning` (lead with `lead_with`, honour
+   `de_emphasize`) and skim `voice.about` / `voice.character` to match Adam's register.
 2. **Assemble.** Decide, for this target:
    - which roles to feature in full, which to condense to a heading, which to fold into an
      `Earlier:` line, which to drop (recent + relevant win; use `emphasis`/`onePager` hints
@@ -76,6 +76,10 @@ Match `example-frontend.webc` exactly:
 ## Guardrails
 
 - **Truth:** every fact must trace to `resume.yaml`. Rewording is fine; fabrication is not.
+- **Positioning:** lead with `positioning.lead_with` (including his polyglot range). Items
+  under `de_emphasize` are polyglot breadth — fine to mention or omit, but never lead with
+  them or claim deep expertise. Matching a posting's keywords never overrides this —
+  represent Adam at his real strengths, not the JD's wishlist.
 - **Frozen:** never reference live data in the file; regenerate rather than hand-editing.
 - **Fit:** hit the target length by thinning older roles (condense → `Earlier:` → drop),
   not by shrinking type. If it won't fit, tell the user what you cut.

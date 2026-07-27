@@ -26,6 +26,32 @@ basics:
     linkedin: linkedin.com/in/adamtolley
     github: github.com/refactorized
 
+# ── Positioning — how Adam wants to be represented ──────────────────────────────
+# Guidance for the tailor-resume assembly (the AI glue). POLICY, not fact: it shapes
+# what to lead with and what to downplay. Lead with strengths; never oversell the
+# de-emphasized items. (Rendered by no template — read by the assembler.)
+positioning:
+  lead_with:
+    - >-
+      Deep web-platform expertise — HTML/CSS/JS, browsers and standards, web components,
+      performance, and the architecture and design systems that hold large front ends
+      together. This hard-won platform depth is the differentiator — what directing an AI
+      can't replace.
+    - >-
+      AI-augmented development — building AI-assisted product interfaces and developing
+      effectively with AI coding tools. Platform depth is what turns AI into real leverage.
+    - Architecture, developer experience, design systems, and technical leadership / mentoring.
+    - >-
+      Polyglot range — picks up and ships in most languages and stacks quickly; the value
+      is breadth, judgement, and fast ramp, not single-language depth. (Once coded a
+      computed-tomography simulation overnight from a purely algorithmic description of the
+      math.)
+  # Fine to include these as evidence of polyglot range, or to omit entirely for focus —
+  # but never lead with them or claim deep expertise.
+  de_emphasize:
+    - Python — conversant and quick to master, not a claimed strength.
+    - Java — decades-old, early-career work and not a language he enjoys.
+
 summary:
   headline: Web Platform Practitioner
   paragraphs:
@@ -45,8 +71,10 @@ summary:
 skills:
   - group: Frameworks
     items: [Next.js, React, Web Components, Lit, Stencil.js, 11ty, Astro]
+  - group: AI
+    items: [AI-assisted product interfaces, AI-augmented development, working with AI coding tools and agents]
   - group: Languages
-    items: [JavaScript, TypeScript, C#, Python, shell scripting, functional programming]
+    items: [JavaScript, TypeScript, C#, shell scripting, functional programming]
   - group: Data & APIs
     items: [SQL, GraphQL, REST APIs, JSON, sanity.io, Contentful, headless CMS]
   - group: Styling
@@ -293,3 +321,4 @@ voice:
     - Values diversity, equity, inclusivity, and accessibility
     - Vastly prefers solving difficult problems to completing repetitive tasks
     - Really likes bulleted lists (and parentheses)
+    - Once coded a computed-tomography simulation overnight from a purely algorithmic description of the math — a polyglot's knack for unfamiliar domains and languages
