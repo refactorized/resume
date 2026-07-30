@@ -1,10 +1,10 @@
 ---
 name: tailor-resume
 description: >-
-  Generate a tailored résumé "document object" from web/_data/resume.yaml for a specific
-  job posting or brief. Use when the user wants a bespoke/tailored résumé, to tailor to a
-  posting, to target a role, or to produce a new one-off résumé variant. Produces a
-  self-contained, frozen .webc under web/resume/generated/ that renders to PDF.
+  Generate a tailored résumé "document object" from web/_data/resume.yaml for a specific job posting
+  or brief. Use when the user wants a bespoke/tailored résumé, to tailor to a posting, to target a
+  role, or to produce a new one-off résumé variant. Produces a self-contained, frozen .webc under
+  web/resume/generated/ that renders to PDF.
 ---
 
 # Tailor résumé
@@ -17,71 +17,113 @@ resume.yaml   →   [YOU: assemble + smooth]   →   document object   →   ren
  preferred prose   emphasize · reword             content baked in      never varies
 ```
 
-Determinism lives at the two ends (the **source** and the **rendering**). Judgment lives
-only in the middle — with you. Your output is a **document object**: a self-contained
-`.webc` whose content is baked in as literal markup, disconnected from `resume.yaml`, that
-renders deterministically through the shared shell.
+Determinism lives at the two ends (the **source** and the **rendering**). Judgment lives only in the
+middle — with you. Your output is a **document object**: a self-contained `.webc` whose content is
+baked in as literal markup, disconnected from `resume.yaml`, that renders deterministically through
+the shared shell.
 
 ## Inputs
 
 From the user (ask only if missing and it matters):
+
 - **Target** — a pasted job posting, or a brief ("punchy 1-pager for a staff frontend role").
 - **Length** — target pages (default: 1 unless the brief implies more).
 - **Tone / emphasis** — optional (e.g. leadership-forward, hands-on IC, design-systems).
 
 ## Process
 
-1. **Read the source.** Load `web/_data/resume.yaml` — it is the ONLY source of facts and
-   the canonical ("preferred") prose. Read `positioning` (lead with `lead_with`, honour
-   `de_emphasize`) and skim `voice.about` / `voice.character` to match Adam's register.
+1. **Read the source — both layers.** `web/_data/resume.yaml` is the ONLY source of facts and the
+   canonical ("preferred") prose; its `retired:` list is a hard ban (audit fails an object naming
+   one). `ai/editorial.md` is the judgment layer — positioning, per-target insights, editorial
+   lessons. Skim `voice.about` / `voice.character` to match Adam's register.
 2. **Assemble.** Decide, for this target:
    - which roles to feature in full, which to condense to a heading, which to fold into an
-     `Earlier:` line, which to drop (recent + relevant win; use `emphasis`/`onePager` hints
-     but you may override for relevance — e.g. surface an older role a posting cares about);
+     `Earlier:` line, which to drop (recent + relevant win; use `emphasis`/`onePager` hints but you
+     may override for relevance — e.g. surface an older role a posting cares about);
    - section set and order (summary, skills, highlights, experience, education);
    - a tailored `jobTitle`;
    - skill selection/ordering that mirrors the posting's language where truthful.
-3. **Smooth the prose.** Reword bullets and summary to fit the target and echo the
-   posting's terms — **only rephrasing/re-emphasizing existing facts. Never invent**
-   (no new employers, dates, tech, or metrics not in resume.yaml). If tempted to add a
-   claim that isn't in the source, stop and ask.
+3. **Smooth the prose.** Reword bullets and summary to fit the target and echo the posting's terms —
+   **only rephrasing/re-emphasizing existing facts. Never invent** (no new employers, dates, tech,
+   or metrics not in resume.yaml). If tempted to add a claim that isn't in the source, stop and ask.
 4. **Write the document object** to `web/resume/generated/<slug>.webc` (kebab slug, e.g.
    `acme-staff-frontend`). Follow the conventions below. Model it on the reference file
-   `web/resume/generated/example-frontend.webc`.
-5. **Render.** Run `npm run build` (the build auto-discovers `generated/*` → one PDF each).
-   The output is `_site/resume-<slug>.pdf`.
-6. **Verify & report.** Read the PDF; confirm page count, that nothing is invented, and
-   that it reads well. Show the user the path and a short summary of what you weighted.
+   `web/resume/generated/example-frontend.webc`. Stamp the front matter with `sourceVersion:` —
+   first 8 hex chars of the source hash (`shasum -a 256 web/_data/resume.yaml | cut -c1-8`) — and
+   save the posting/brief **verbatim** to `ai/briefs/<slug>.md` (target, source, length, emphasis,
+   assembly notes). Regeneration works from that brief, never from a paraphrase of a paraphrase.
+5. **Render.** Run `npm run build` (the build auto-discovers `generated/*` → one PDF each). The
+   output is `_site/resume-<slug>.pdf`.
+6. **Verify & report.** Read the PDF — actually read it, page by page; poppler renders the pages as
+   images, and page counts alone hide bad breaks. Confirm the page count, that nothing is invented,
+   that it reads well, and that the pages break where they should (see **Pagination** below). Judge
+   **fill balance** too: a final page that trails off half-empty is a fit defect just like an
+   overflow — restore substantive material (or thin to one page fewer) until the last page reads
+   deliberate, and say so if space is left on purpose. Run `npm run audit` to confirm the running
+   header and footer survived on every page. Then the review goes **interactive**: show Adam the
+   rendered pages and what you weighted, and iterate — a new or changed object isn't done until
+   he's seen it.
+7. **Ratchet & commit.** Before closing, fold durable decisions back where they belong: facts,
+   knobs, and retirements into `resume.yaml`; judgment and per-target insights into
+   `ai/editorial.md`. Then commit — the facts change first, then the object + its brief as its own
+   commit (local and frequent; Adam batches pushes himself). When a variant is actually dispatched,
+   add `sent: YYYY-MM-DD` to its front matter and commit that state — a sent record is never
+   silently overwritten by a later regeneration.
 
 ## Document-object conventions
 
 Match `example-frontend.webc` exactly:
 
-- Front matter: `layout: shell.webc` and a baked `jobTitle:`. Optionally `variant: roomy`.
-  Leave name/email/links to the shell (they fall through to `resume.basics`) unless the
-  user wants a fully standalone snapshot — then bake them too.
+- Front matter: `layout: shell.webc`, a baked `jobTitle:`, and `sourceVersion:` (see Process 4);
+  `sent: YYYY-MM-DD` is added at dispatch. Optionally `variant: roomy`. Leave
+  name/email/links to the shell (they fall through to `resume.basics`) unless the user wants a fully
+  standalone snapshot — then bake them too.
 - Open with the frozen-object comment header (state the target; "regenerate, don't edit").
-- Content is **literal markup only — no `resume.*`, no `webc:for`, no filters.** This is
-  what makes it a frozen snapshot.
+- Content is **literal markup only — no `resume.*`, no `webc:for`, no filters.** This is what makes
+  it a frozen snapshot.
 - Structure: `<section class="summary|skills|highlights|history|education">` with an `<h2>`.
-- A role: `<div class="job">` containing one `<h3 class="job-title">Company <em>as</em>
-  Role <em>from</em> Mon YYYY <em>to</em> Mon YYYY</h3>` per role (use `<em>onward</em>` for
-  present, ` <em>(contract)</em>` after the role for contracts), then a `<ul><li>…</li></ul>`.
+- A role: `<div class="job">` containing one
+  `<h3 class="job-title">Company <em>as</em> Role <em>from</em> Mon YYYY <em>to</em> Mon YYYY</h3>`
+  per role (use `<em>onward</em>` for present, ` <em>(contract)</em>` after the role for contracts),
+  then a `<ul><li>…</li></ul>`.
 - Skills: `<ul class="skills-list"><li>comma, separated, cluster</li>…</ul>`.
-- Collapsed older roles: `<p class="earlier"><em>Earlier:</em> Company · Company · … — one
-  clause of context.</p>`.
+- Collapsed older roles:
+  `<p class="earlier"><em>Earlier:</em> Company · Company · … — one clause of context.</p>`.
 - Do NOT add CSS or restyle. The frame (page size, type, spacing, pagination) is owned by
   `web/style/resume.css`; use `variant: roomy` for a more spacious 3-page feel.
+
+## Pagination — yours to decide
+
+The live views let the browser break wherever it lands. A document object doesn't have to: **where
+the pages part is an editorial decision, and on a multi-page résumé it's yours.** The running header
+and contact footer are painted on every page automatically — you never author those — but the break
+points are content judgment, so treat them as part of assembly.
+
+- `<div class="page-break"></div>` — end the page here.
+- `<section class="starts-page">` — begin this block on a new page.
+- When a section continues across a break, close it and reopen it with a continued heading, so the
+  reader is never dropped into unlabelled roles:
+  `<h2>Employment History <span class="continued">continued</span></h2>`
+
+Use it when the automatic break reads badly — a section heading marooned at the foot of a page, a
+company's roles split from their bullets, page 1 ending mid-thought when it could close cleanly
+after Education. Judge this from the **rendered PDF**, not the markup.
+
+Don't force breaks you don't need: an unnecessary one just leaves a short page. And never use a
+break to fake fit — if the content is too long, thin it (see **Fit** below).
 
 ## Guardrails
 
 - **Truth:** every fact must trace to `resume.yaml`. Rewording is fine; fabrication is not.
-- **Positioning:** lead with `positioning.lead_with` (including his polyglot range). Items
-  under `de_emphasize` are polyglot breadth — fine to mention or omit, but never lead with
-  them or claim deep expertise. Matching a posting's keywords never overrides this —
-  represent Adam at his real strengths, not the JD's wishlist.
+- **Positioning:** follow `ai/editorial.md` — lead with its lead-with list (including his polyglot
+  range); de-emphasized items (Python, Java) are polyglot breadth, never led with or oversold.
+  `retired:` names in `resume.yaml` are a hard ban — audit fails on them. A posting's keywords
+  never override any of this — represent Adam at his real strengths, not the JD's wishlist.
+- **Corrections are fact changes.** When tailoring surfaces a correction or a durable weighting
+  decision, it lands in `resume.yaml` (fact, knob, or `retired:` entry) or `ai/editorial.md` —
+  never only in the document object.
 - **Frozen:** never reference live data in the file; regenerate rather than hand-editing.
-- **Fit:** hit the target length by thinning older roles (condense → `Earlier:` → drop),
-  not by shrinking type. If it won't fit, tell the user what you cut.
-- These files are disposable snapshots — one per application is expected; they're committed
-  as a record of what was sent.
+- **Fit:** hit the target length by thinning older roles (condense → `Earlier:` → drop), not by
+  shrinking type. If it won't fit, tell the user what you cut.
+- These files are disposable snapshots — one per application is expected; they're committed as a
+  record of what was sent.
