@@ -18,7 +18,9 @@ reporting that a render change works.
 While reading, judge **fill balance**, not just breaks: a final page left half-empty is as much a
 fit failure as an overflow. For document objects, restore or thin content until the last page is
 deliberate (found the hard way on the Capital One two-pager, Jul 2026 — page 2 shipped ~60% empty
-and passed every automated check).
+and passed every automated check). `npm run probe` now measures this — it warns when a multi-page
+view's last page is under ⅔ full — but the number is a flow-based estimate; confirm against the
+rendered pages.
 
 - `npm run audit` — every PDF carries the running header **and** contact footer on **every** page,
   and page counts match expectations. Needs poppler (`brew install poppler`).

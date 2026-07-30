@@ -45,7 +45,10 @@ Global flags: `--views one-pager,full` to narrow, `--port <n>` if 3928 is busy. 
 content?_ It reports content height against the page budget and, by comparing implied pages to the
 built PDF's actual pages, flags **fragmentation waste** — a block that wouldn't fit got pushed
 whole, stranding the tail of a page. That is a break-policy problem, and cutting content would be
-the wrong fix. See [ai/paged-media.md](../../../ai/paged-media.md).
+the wrong fix. See [ai/paged-media.md](../../../ai/paged-media.md). It also reports **last-page
+fill** and warns under ⅔ on multi-page views — a half-empty final page is a fit defect that every
+hard check passes. The fill number is a flow-based estimate (explicit page breaks shift the real
+distribution): treat it as a signal, and judge the actual break from the rendered pages.
 
 **`css`** is the fast path for any styling question: write the candidate rules to a file, run it,
 and get a baseline-vs-candidate page-count diff across every view plus both PDFs to read. No

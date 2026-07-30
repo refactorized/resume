@@ -188,9 +188,21 @@ program
         )
         const implied = Math.max(1, Math.ceil(h / usable))
         const actual = pdfPages(path.join(SITE, `${slug}.pdf`))
-        const spare = Math.round(implied * usable - h)
+        const pages = actual ?? implied
+        const lastPageContent = h - (pages - 1) * usable
+        const fill = lastPageContent / usable
 
-        let note = chalk.dim(`${spare}px spare on last page`)
+        let note = chalk.dim(
+          `last page ${Math.round(fill * 100)}% full (${Math.round(usable - lastPageContent)}px spare)`,
+        )
+        if (pages > 1 && fill < 0.66) {
+          // A half-empty final page passes every hard check but reads as a fit defect
+          // (shipped once on the Capital One 2-pager). Editorial call: restore content
+          // until the page is deliberate, or thin to one page fewer.
+          note = chalk.yellow(
+            `last page only ${Math.round(fill * 100)}% full — fill it or lose it`,
+          )
+        }
         if (actual && actual > implied) {
           // The content fits fewer pages than it renders into: a block that wouldn't
           // fit got pushed whole. That's a break-policy problem, not too much content.

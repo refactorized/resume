@@ -94,4 +94,6 @@ local and frequent, pushes batched. Implemented same day:
   now. `ai/briefs/` holds each object's target verbatim (Capital One's reconstructs a lost email).
 - Capital One dispatched 2026-07-30: `sent:` front-matter marker; record locked as two commits
   (facts `29495d1`, object `932628b`) before any restructuring.
-- Still open: probe last-page-fill measurement (session two).
+- Probe last-page-fill measurement (`measure` reports fill %, warns under ⅔ on multi-page views).
+  First run immediately flagged the **full** view's last page at 31% — a live-view fit question
+  left open for a future content/spacing pass.

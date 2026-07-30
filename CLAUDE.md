@@ -27,9 +27,10 @@ paper (**PDF via headless Chrome / Playwright**). This is Adam Tolley's own rés
   **fails** any object naming a `retired:` technology.
 - `npm run audit-all` — the same, plus W3C Nu validation of every generated page. Needs network.
 - `npm run probe` — render diagnostics on the built `_site/`, using the project's own Playwright
-  (the same Chromium `build.js` prints with). `probe` alone measures content height vs page budget
-  and flags fragmentation waste; `probe -- css <file>` diffs page counts under candidate CSS with no
-  rebuild; `probe -- screen` asserts the on-screen render. See the **render-probe** skill.
+  (the same Chromium `build.js` prints with). `probe` alone measures content height vs page budget,
+  flags fragmentation waste, and warns when a multi-page view's last page is under ⅔ full;
+  `probe -- css <file>` diffs page counts under candidate CSS with no rebuild; `probe -- screen`
+  asserts the on-screen render. See the **render-probe** skill.
 - `build.js` flags: `--skip-pdf`, `--port <n>` (default 3927), `--wait`, `-q`, `--no-color`.
   Playwright downloads its Chromium on `npm install` (shared ms-playwright cache); PDF builds boot
   an internal server on :3927 and end via `process.exit(0)`.
