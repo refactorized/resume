@@ -38,8 +38,14 @@ positioning:
       together. This hard-won platform depth is the differentiator — what directing an AI
       can't replace.
     - >-
-      AI-augmented development — building AI-assisted product interfaces and developing
-      effectively with AI coding tools. Platform depth is what turns AI into real leverage.
+      React specialization — React and Next.js are the current working stack (server
+      components, typed data layers, shared component systems). Lead with React for any
+      product-engineering target; the broader platform depth above is what backs it up.
+    - >-
+      AI-augmented development, as a discipline — not just coding with AI, but building the
+      knowledge systems, agent skills, and workflow tooling that make a team's AI use
+      repeatable, and mentoring other developers into directing agents effectively
+      themselves. Platform depth is what turns AI into real leverage.
     - Architecture, developer experience, design systems, and technical leadership / mentoring.
     - >-
       Polyglot range — picks up and ships in most languages and stacks quickly; the value
@@ -51,6 +57,11 @@ positioning:
   de_emphasize:
     - Python — conversant and quick to master, not a claimed strength.
     - Java — decades-old, early-career work and not a language he enjoys.
+    - >-
+      Lit / Stencil.js — evaluated during the 2023–24 consulting research into
+      platform-native web component frameworks; never working knowledge and long since
+      gone cold. Do NOT reinstate them from LinkedIn or older résumé copies. Web
+      components as a *concept* remain fair game; the named frameworks do not.
 
 summary:
   headline: Web Platform Practitioner
@@ -69,26 +80,105 @@ summary:
 # Grouped so tailoring can pick relevant clusters. The current one-pager renders
 # these as flat bullets; groups are for authoring, tagging, and future selection.
 skills:
+  # React-first: this is the current specialization, so it leads. Lit/Stencil were
+  # evaluation work in the 2023–24 consulting period, not working knowledge — see
+  # positioning.de_emphasize before reinstating them from LinkedIn.
   - group: Frameworks
-    items: [Next.js, React, Web Components, Lit, Stencil.js, 11ty, Astro]
-  - group: AI
-    items: [AI-assisted product interfaces, AI-augmented development, working with AI coding tools and agents]
+    items:
+      [React, Next.js, React Server Components, Astro, 11ty, Web Components]
+  # Claude Code is named deliberately: it's the actual daily tool (see the spectra-next
+  # repo — CLAUDE.md, .ai/ knowledge system, .claude/skills/) and a keyword some
+  # employers (e.g. Capital One) screen for. Fact, not padding.
+  - group: AI-augmented development
+    items:
+      [
+        Claude Code,
+        agentic coding workflows,
+        multi-agent orchestration,
+        context engineering,
+        agent skills and reusable prompts,
+        team enablement,
+        AI-assisted product interfaces,
+      ]
   - group: Languages
     items: [JavaScript, TypeScript, C#, shell scripting, functional programming]
   - group: Data & APIs
-    items: [SQL, GraphQL, REST APIs, JSON, sanity.io, Contentful, headless CMS]
+    items:
+      [
+        SQL,
+        PostgreSQL,
+        GraphQL,
+        REST APIs,
+        JSON,
+        Zod,
+        sanity.io,
+        Contentful,
+        headless CMS,
+      ]
   - group: Styling
-    items: [HTML, CSS, SCSS, SVG, Styled Components, Emotion, CSS-in-JS, vanilla-extract]
+    items:
+      [
+        HTML,
+        CSS,
+        SCSS,
+        SVG,
+        MUI,
+        Emotion,
+        Styled Components,
+        CSS-in-JS,
+        vanilla-extract,
+      ]
   - group: Architecture
-    items: [Node.js, JAM stack, SSR, SSG, island architecture, SPA, PWA, MVC, MVVM, "MV*"]
+    items:
+      [
+        Node.js,
+        server components,
+        JAM stack,
+        SSR,
+        SSG,
+        island architecture,
+        SPA,
+        PWA,
+        'MV*',
+      ]
   - group: Cloud & Infra
-    items: [AWS, Lambda, S3, EC2, Elastic Beanstalk, Amplify, Cognito, Netlify, microservices]
+    items:
+      [
+        AWS,
+        Lambda,
+        S3,
+        EC2,
+        Elastic Beanstalk,
+        Amplify,
+        Cognito,
+        Netlify,
+        microservices,
+      ]
   - group: Process
     items: [git, SCM, Agile, DX, code review, Scrum, mentorship, best practices]
   - group: Testing
-    items: [unit testing, integration testing, Jest, Mocha, TDD, automation, Puppeteer, Playwright]
+    items:
+      [
+        unit testing,
+        integration testing,
+        Jest,
+        Mocha,
+        TDD,
+        automation,
+        Puppeteer,
+        Playwright,
+      ]
   - group: Design
-    items: [design systems, design tokens, accessibility, a11y, WCAG, UX/UI, user studies]
+    items:
+      [
+        design systems,
+        design tokens,
+        accessibility,
+        a11y,
+        WCAG,
+        UX/UI,
+        user studies,
+      ]
   # Adam is genuinely excellent at naming; cache invalidation remains eternally hard.
   - group: Also
     subtle: true # render quietly — it's a wink, not a headline
@@ -137,11 +227,51 @@ work:
   - company: Spectra Media Collective
     roles:
       - { as: Development Lead, from: Nov 2024, to: present }
-    tags: [leadership, architecture, aws, ai, design-systems, web-components]
+    tags:
+      [
+        leadership,
+        react,
+        nextjs,
+        typescript,
+        architecture,
+        aws,
+        ai,
+        agentic-development,
+        mentoring,
+        design-systems,
+        postgres,
+        security,
+      ]
     highlights:
-      - Leading the in-vivo re-architecture and development of Spectra.theater, our main product
-      - Inculcating best practices like component reuse, design tokens, and mobile-first design
-      - Researching and developing AI interfaces to our vast catalogue of theatrical performance data
+      - >-
+        Leading the in-vivo re-architecture of Spectra.theater, a performing-arts discovery
+        platform, onto React and Next.js — server components, a typed PostgreSQL data layer,
+        and a shared component system replacing ad-hoc page-by-page construction
+      - text: >-
+          Drove the team's full adoption of AI-augmented development on Claude Code,
+          treating it as an engineering discipline rather than autocomplete:
+        children:
+          - >-
+            Built the agent-facing knowledge system the whole team codes against — layered
+            canonical docs, mechanical references, and per-effort workflow records that let
+            work be picked up mid-stream with full context
+          - >-
+            Authored reusable Claude Code agent skills, prompts, and workflow tooling that
+            make multi-step efforts repeatable, resumable, and reviewable
+          - >-
+            Set deliberate model and effort tiering per task, keeping deep reasoning where
+            judgement is needed and mechanical work cheap
+      - >-
+        Mentoring teammates into effective AI-directing developers — each running their own
+        agent workflows against shared conventions, with review and house standards holding
+        the quality line as throughput multiplies
+      - >-
+        Established the platform's design language and house style — design tokens, a shared
+        styling system, and a living style guide with a decisions ledger
+      - >-
+        Hardened the client/server trust boundary, adopting a strict data-access-layer model
+        that separates a server-only data layer from a thin authenticated action surface
+        across public, user, and admin trust lanes
       - Managing build, deployment, and data infrastructure on AWS
 
   - company: Independent Consultant
@@ -158,7 +288,16 @@ work:
     roles:
       - { as: Principal Architect, from: Apr 2022, to: May 2023 }
       - { as: Senior Software Engineer, from: Feb 2020, to: Apr 2022 }
-    tags: [architecture, nextjs, typescript, jamstack, sanity, design-systems, leadership]
+    tags:
+      [
+        architecture,
+        nextjs,
+        typescript,
+        jamstack,
+        sanity,
+        design-systems,
+        leadership,
+      ]
     highlights:
       - Championed greater Design and Dev team collaboration, instituting common practices and terminology
       - text: >-
@@ -249,6 +388,10 @@ work:
 
   - company: Unison Inc
     contract: true
+    # Dropped from the compact one-pager to make room for the AI/React skills lines —
+    # the oldest short contract is the cheapest row to lose there. Still in every
+    # other view.
+    onePager: false
     roles:
       - { as: Front End Developer, from: Nov 2012, to: Feb 2013 }
     tags: [node, express, mocha, php, responsive]
