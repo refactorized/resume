@@ -26,42 +26,25 @@ basics:
     linkedin: linkedin.com/in/adamtolley
     github: github.com/refactorized
 
-# ── Positioning — how Adam wants to be represented ──────────────────────────────
-# Guidance for the tailor-resume assembly (the AI glue). POLICY, not fact: it shapes
-# what to lead with and what to downplay. Lead with strengths; never oversell the
-# de-emphasized items. (Rendered by no template — read by the assembler.)
-positioning:
-  lead_with:
-    - >-
-      Deep web-platform expertise — HTML/CSS/JS, browsers and standards, web components,
-      performance, and the architecture and design systems that hold large front ends
-      together. This hard-won platform depth is the differentiator — what directing an AI
-      can't replace.
-    - >-
-      React specialization — React and Next.js are the current working stack (server
-      components, typed data layers, shared component systems). Lead with React for any
-      product-engineering target; the broader platform depth above is what backs it up.
-    - >-
-      AI-augmented development, as a discipline — not just coding with AI, but building the
-      knowledge systems, agent skills, and workflow tooling that make a team's AI use
-      repeatable, and mentoring other developers into directing agents effectively
-      themselves. Platform depth is what turns AI into real leverage.
-    - Architecture, developer experience, design systems, and technical leadership / mentoring.
-    - >-
-      Polyglot range — picks up and ships in most languages and stacks quickly; the value
-      is breadth, judgement, and fast ramp, not single-language depth. (Once coded a
-      computed-tomography simulation overnight from a purely algorithmic description of the
-      math.)
-  # Fine to include these as evidence of polyglot range, or to omit entirely for focus —
-  # but never lead with them or claim deep expertise.
-  de_emphasize:
-    - Python — conversant and quick to master, not a claimed strength.
-    - Java — decades-old, early-career work and not a language he enjoys.
-    - >-
-      Lit / Stencil.js — evaluated during the 2023–24 consulting research into
-      platform-native web component frameworks; never working knowledge and long since
-      gone cold. Do NOT reinstate them from LinkedIn or older résumé copies. Web
-      components as a *concept* remain fair game; the named frameworks do not.
+# ── This file is FACTS ONLY ─────────────────────────────────────────────────────
+# How to weight, lead, and soften these facts — positioning, per-target insights,
+# editorial lessons — lives in ai/editorial.md. The tailor-resume assembler reads
+# both. Corrections land here first (fact, knob, or retired entry) before any
+# document object bakes them in.
+
+# Technologies deliberately retired from the résumé — facts with status, not policy.
+# Rendered by no template; `npm run audit` FAILS any generated document object that
+# still names one. Do not reinstate from LinkedIn or older résumé copies.
+retired:
+  - name: Lit
+    since: 2026-07-28
+    reason: >-
+      Evaluated during the 2023–24 consulting research into platform-native web-component
+      frameworks; never working knowledge and long since gone cold. Web components as a
+      concept remain fair game; the named framework does not.
+  - name: Stencil.js
+    since: 2026-07-28
+    reason: Same evaluation-only status as Lit — never working knowledge.
 
 summary:
   headline: Web Platform Practitioner
@@ -80,9 +63,8 @@ summary:
 # Grouped so tailoring can pick relevant clusters. The current one-pager renders
 # these as flat bullets; groups are for authoring, tagging, and future selection.
 skills:
-  # React-first: this is the current specialization, so it leads. Lit/Stencil were
-  # evaluation work in the 2023–24 consulting period, not working knowledge — see
-  # positioning.de_emphasize before reinstating them from LinkedIn.
+  # React-first: this is the current specialization, so it leads. Lit/Stencil are
+  # `retired:` facts (see top of file) — audit fails any generated object naming them.
   - group: Frameworks
     items:
       [React, Next.js, React Server Components, Astro, 11ty, Web Components]
