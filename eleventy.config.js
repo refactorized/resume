@@ -42,6 +42,9 @@ export default function (eleventyConfig) {
   // simple css copy for now
   eleventyConfig.addPassthroughCopy('web/style/*.css')
 
+  // self-hosted Figtree — the PDF build must not depend on a font CDN at render time
+  eleventyConfig.addPassthroughCopy('web/style/fonts')
+
   // add md plugins
   eleventyConfig.amendLibrary('md', (mdLib) => {
     mdLib.use(mdattrs) // general attributes support

@@ -7,12 +7,63 @@
    HTML-comment page splitting.
    ───────────────────────────────────────────────────────────────────────── */
 
+/* ── Figtree, self-hosted ───────────────────────────────────────────────────
+   Served from the repo, not a CDN: the PDF build renders through headless
+   Chrome, so a font fetched over the network at render time makes the output
+   depend on connectivity — the same résumé would print in a fallback face when
+   offline. Variable woff2, weights 300–900, roman + italic.
+   ────────────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: block;
+  src: url('/style/fonts/figtree-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: block;
+  src: url('/style/fonts/figtree-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Figtree';
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: block;
+  src: url('/style/fonts/figtree-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Figtree';
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: block;
+  src: url('/style/fonts/figtree-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --page-width: 8.5in;
   --page-height: 11in;
   --margin-x: 0.9in;
   --margin-top: 0.6in;
   --margin-bot: 0.6in;
+  /* Space the `tfoot` holds open on every page for the fixed contact row.
+     Must exceed the contact row's own height (~21px: 0.875rem text + 0.5rem
+     padding + rule); the remainder is clearance between content and footer. */
+  --footer-reserve: 0.32in;
 
   --text-lg: calc(9 / 8 * 1rem);
   --text-sm: calc(7 / 8 * 1rem);
@@ -64,11 +115,18 @@ body {
   font-size: var(--text-lg);
   margin-bottom: 1.2em;
 }
+/* The name is the document's `h1` and the title a `p` — the heading outline is
+   real, so the type here is set by the header, not by the elements' defaults. */
 .cv-header .name {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
   padding-right: 0.25rem;
 }
 .cv-header .title {
+  font-size: inherit;
   font-weight: var(--fw-normal);
+  margin: 0;
 }
 
 /* ── Section headings ───────────────────────────────────────────────────── */
@@ -76,7 +134,7 @@ h2 {
   font-weight: var(--fw-bold);
   width: 100%;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.9rem;
   margin-bottom: 0.5rem;
   text-align: center;
   text-decoration: underline;
@@ -84,18 +142,35 @@ h2 {
   text-underline-offset: 2px;
   break-after: avoid; /* never strand a heading at a page bottom */
 }
-h2:first-child {
+/* Only the document's very first heading hugs the top — every other section
+   heading keeps its margin. (Scoped: each section's h2 is also a :first-child,
+   so a bare `h2:first-child` silently flattens the whole document.) */
+.cv-main > :first-child > h2:first-child,
+.cv-main > h2:first-child {
   margin-top: 0;
 }
 
-/* ── Employment history (detailed) ──────────────────────────────────────── */
+/* ── Employment history (detailed) ──────────────────────────────────────────
+   Break policy: a long role MAY continue across a page, but its heading is
+   never stranded and no single bullet is ever split.
+
+   `break-inside: avoid` on the whole `.job` was worse, counter-intuitively:
+   a role only moves wholesale if it fits on the *next* page, so a tall current
+   role would jump entirely and strand the whole tail of the previous page. That
+   cost `recent` and `comprehensive` an extra page each while their content still
+   fit the page budget. To go back to whole-roles-only, restore
+   `break-inside: avoid` here — and expect the page counts to grow.
+   ────────────────────────────────────────────────────────────────────────── */
 .job {
-  break-inside: avoid; /* keep a job together across page breaks */
   margin-top: 0.75rem;
+}
+.job li {
+  break-inside: avoid; /* never split a bullet across pages */
 }
 .job-title {
   font-weight: var(--fw-bold);
   font-size: 1rem;
+  break-after: avoid; /* never strand a role heading at a page bottom */
 }
 .job-title + .job-title {
   margin-top: 0; /* stacked roles at one company hug together */
@@ -129,43 +204,125 @@ li em {
   opacity: 0.65;
 }
 
-/* ── Condensed employment table (one-pager) ─────────────────────────────── */
-table {
+/* ── Condensed employment table (one-pager) ─────────────────────────────────
+   Scoped to `.cv-main` so these content-table rules never touch `.page-frame`,
+   the running-furniture table that wraps the whole document.
+   ────────────────────────────────────────────────────────────────────────── */
+.cv-main table {
   width: 100%;
   border-collapse: collapse;
 }
-thead {
+.cv-main thead {
   display: none;
 }
-td {
+.cv-main td {
   font-size: 1rem;
   padding-left: 1rem;
   vertical-align: baseline;
 }
-td:first-child {
+.cv-main td:first-child {
   padding-left: 0;
 }
-td.dates {
+.cv-main td.dates {
   text-align: right;
   white-space: nowrap;
 }
-td em {
+.cv-main td em {
   font-size: var(--text-sm);
 }
 
-/* ── Contact, at the end of the document ────────────────────────────────── */
+/* ── Running furniture: header + contact on EVERY page ──────────────────────
+   Chrome repeats a table's `thead`/`tfoot` on each printed page and reserves
+   their height, which `position: fixed` alone does not do (fixed elements
+   repeat, but flowing content runs underneath them). So:
+     · thead  — paints the running header, and reserves its own space.
+     · tfoot  — reserves the footer band only; paints nothing.
+     · .cv-contact — `position: fixed`, painting the contact row at the bottom
+       of every page, including the last one, where content stops short.
+   ────────────────────────────────────────────────────────────────────────── */
+.page-frame {
+  width: 100%;
+  border-collapse: collapse;
+  /* Belt and braces: the document is standards-mode now, so a table inherits type
+     normally — but restating it guarantees the frame can never alter a line break
+     if the doctype is ever lost again. */
+  font: inherit;
+}
+.page-frame > thead > tr > td,
+.page-frame > tfoot > tr > td,
+.page-frame > tbody > tr > td {
+  padding: 0;
+  vertical-align: top;
+  font: inherit;
+}
+
 .cv-contact {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1rem;
   padding-top: 0.5rem;
   border-top: 1px solid #0002;
   font-size: var(--text-sm);
 }
 
+@media screen {
+  /* On screen the sheet is a single continuous box: the contact row simply
+     ends the document and no footer band needs reserving. */
+  .cv-contact {
+    margin-top: 1rem;
+  }
+  .cv-contact-reserve {
+    display: none;
+  }
+}
+
+@media print {
+  .cv-contact {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+  }
+  .cv-contact-reserve {
+    height: var(--footer-reserve);
+  }
+}
+
 p {
   margin: 0.5rem 0;
+}
+
+/* ── Explicit page breaks (document objects) ────────────────────────────────
+   Live views flow and let the browser break wherever it lands. A frozen
+   document object may instead place its own breaks, so a tailored résumé
+   pages where it reads best — the judgment the old hand-split parts carried.
+   Verified to work inside `.page-frame`'s cell; the running header and footer
+   still repeat across a forced break.
+
+     <div class="page-break"></div>     end the page here
+     <section class="starts-page">      begin this block on a new page
+     <h2>Employment History <span class="continued">continued</span></h2>
+   ────────────────────────────────────────────────────────────────────────── */
+.page-break {
+  break-after: page;
+  height: 0;
+}
+.starts-page {
+  break-before: page;
+}
+h2 .continued,
+h2 small {
+  font-weight: var(--fw-normal);
+  font-size: var(--text-sm);
+}
+
+@media screen {
+  /* On screen the sheet is continuous, so mark where the paper will part. */
+  .page-break {
+    margin: 1.5rem 0;
+    border-top: 1px dashed #0004;
+  }
 }
 
 /* ── Variant modifiers ──────────────────────────────────────────────────────

@@ -7,33 +7,69 @@
 # BAKE it in and stay self-contained) and otherwise falls back to resume.basics (so the
 # live views stay single-sourced). `variant` adds a modifier class (e.g. "roomy").
 ---
-<head>
-  <meta charset="utf-8" webc:keep />
-  <link webc:keep rel="preconnect" href="https://fonts.googleapis.com" />
-  <link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    webc:keep
-    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet"
-  />
-  <link webc:keep href="/style/reset.css" rel="stylesheet" />
-  <link webc:keep href="/style/resume.css" rel="stylesheet" />
-  <title
-    @text="(fullName || resume.basics.name) + ' — ' + (jobTitle || resume.basics.headline)"
-  ></title>
-</head>
 
-<div :class="variant ? 'sheet ' + variant : 'sheet'">
-  <header class="cv-header">
-    <div class="name" @text="fullName || resume.basics.name"></div>
-    <div class="title" @text="jobTitle || resume.basics.headline"></div>
-  </header>
+<!doctype html>
+<html lang="en" webc:keep>
+  <head>
+    <meta charset="utf-8" webc:keep />
+    <meta
+      webc:keep
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link webc:keep href="/style/reset.css" rel="stylesheet" />
+    <link webc:keep href="/style/resume.css" rel="stylesheet" />
+    <title
+      @text="(fullName || resume.basics.name) + ' — ' + (jobTitle || resume.basics.headline)"
+    ></title>
+  </head>
+  <body webc:keep>
+    <div :class="variant ? 'sheet ' + variant : 'sheet'">
+      <!-- The frame is a pagination mechanism, not a layout grid, and not a choice.
+       Chrome repeats `thead`/`tfoot` on every printed page AND reserves their height,
+       so flowing content can never collide with them. Nothing else in an evergreen
+       engine does both: `display: table-header-group` on a semantic element does not
+       repeat (the behaviour is bound to the element, not the display value), fixed
+       elements repeat but reserve no space and are clipped out of the @page margin,
+       CSS `@page` margin boxes are unimplemented, and the renderer's own
+       `displayHeaderFooter` renders in an isolated context that ignores @font-face —
+       it can only print Times. See the "Running furniture" note in CLAUDE.md.
 
-  <main @html="content"></main>
+       `role="presentation"` keeps it out of the accessibility tree: the document
+       outline is carried by the semantic `header`/`main`/`footer` inside it. -->
+      <table class="page-frame" role="presentation">
+        <thead>
+          <tr>
+            <td>
+              <header class="cv-header">
+                <h1 class="name" @text="fullName || resume.basics.name"></h1>
+                <p class="title" @text="jobTitle || resume.basics.headline"></p>
+              </header>
+            </td>
+          </tr>
+        </thead>
 
-  <footer class="cv-contact">
-    <span @text="email || resume.basics.email"></span>
-    <span @text="github || resume.basics.links.github"></span>
-    <span @text="linkedin || resume.basics.links.linkedin"></span>
-  </footer>
-</div>
+        <!-- `tbody` before `tfoot`: HTML5 reversed the HTML4 ordering. And the content
+         wrapper is a div with `role="main"`, not a `<main>` element — the spec
+         forbids `main` as a descendant of `td`. -->
+        <tbody>
+          <tr>
+            <td><div class="cv-main" role="main" @html="content"></div></td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td><div class="cv-contact-reserve" aria-hidden="true"></div></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <footer class="cv-contact">
+        <span @text="email || resume.basics.email"></span>
+        <span @text="github || resume.basics.links.github"></span>
+        <span @text="linkedin || resume.basics.links.linkedin"></span>
+      </footer>
+    </div>
+  </body>
+</html>
