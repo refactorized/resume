@@ -341,6 +341,19 @@ h2 small {
   margin-top: 0.28em;
 }
 
+/* Full (3-page): a breath more air above sections than the base — lighter than
+   .roomy. The full history should fill its three pages deliberately, not trail
+   off; probe's last-page-fill warning is the gate these numbers were tuned to. */
+.airy h2 {
+  margin-top: 1.45rem;
+}
+.airy .job {
+  margin-top: 0.95rem;
+}
+.airy li {
+  margin-top: 0.2em;
+}
+
 /* First-person profile intro (voice.about). */
 .profile p {
   margin: 0.4rem 0;

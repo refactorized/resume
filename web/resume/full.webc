@@ -1,7 +1,13 @@
 ---
 layout: shell.webc
 jobTitle: Full Stack Web Architect
+variant: airy
 ---
+
+<section class="profile">
+  <h2>Profile</h2>
+  <p @text="resume.voice.intro"></p>
+</section>
 
 <section class="summary">
   <h2 @text="resume.summary.headline"></h2>
@@ -30,6 +36,13 @@ jobTitle: Full Stack Web Architect
     <div @html="jobHeader(job)"></div>
     <div webc:if="job.emphasis !== 'brief'" @html="bullets(job.highlights)"></div>
   </div>
+</section>
+
+<section class="character">
+  <h2>Character</h2>
+  <ul>
+    <li webc:for="c of resume.voice.character" @text="c"></li>
+  </ul>
 </section>
 
 <section class="education">

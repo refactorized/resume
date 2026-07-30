@@ -95,5 +95,7 @@ local and frequent, pushes batched. Implemented same day:
 - Capital One dispatched 2026-07-30: `sent:` front-matter marker; record locked as two commits
   (facts `29495d1`, object `932628b`) before any restructuring.
 - Probe last-page-fill measurement (`measure` reports fill %, warns under ⅔ on multi-page views).
-  First run immediately flagged the **full** view's last page at 31% — a live-view fit question
-  left open for a future content/spacing pass.
+  First run immediately flagged the **full** view's last page at 31% — fixed same day as the first
+  test of the new loop: `voice.intro` Profile + `voice.character` section added (real source
+  content that rendered nowhere), and a new light `airy` variant (31% → 45% → 71% measured, ~85%
+  visual). No fluff added; spacing expressed as a class per the variant convention.

@@ -64,3 +64,9 @@ strengths, not the JD's wishlist.
   brief) as its own commit — so an object's stamp always points at a committed source state. Local
   and frequent; pushing stays batched and manual. At dispatch, add `sent: YYYY-MM-DD` to the
   object's front matter and commit.
+- **Filling pages is content-first, spacing-second** (2026-07-30). When a view under-fills, reach
+  for real unrendered source material before inflating spacing — the full view got `voice.intro`
+  and `voice.character` (each a class of content, not padding), and only then a light `airy`
+  variant. Spacing variation is always a `.sheet` modifier class, never edits to the base rules.
+  The **full view is the everything-view**: it may print voice material (Profile, Character) that
+  tailored documents normally omit.

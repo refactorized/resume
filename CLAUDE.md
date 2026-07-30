@@ -85,8 +85,10 @@ RENDER (deterministic)
   interactive résumé.
 - [web/resume/index.webc](web/resume/index.webc) — one-pager: summary, skills, highlights, condensed
   employment **table**, education. Curated to one page.
-- [web/resume/full.webc](web/resume/full.webc) — full résumé: same sections + **detailed**
-  employment history, auto-paginated.
+- [web/resume/full.webc](web/resume/full.webc) — full résumé, the everything-view: `voice.intro`
+  profile, summary, skills, highlights, **detailed** employment history, `voice.character`, and
+  education, auto-paginated to a deliberately full 3 pages (`variant: airy` — a breath more air
+  above sections, lighter than `roomy`).
 - [web/resume/comprehensive.webc](web/resume/comprehensive.webc) — 3-page view: `voice.about`
   profile intro, every role un-briefed, roomier spacing (`.sheet.roomy`).
 - [web/resume/recent.webc](web/resume/recent.webc) — recent-weighted 2-page: roles ending 2020+ in
