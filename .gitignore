@@ -6,6 +6,7 @@ _local/
 
 # build output
 _site/
+dist/
 _build/
 
 ### Node ###  (trimmed down) 
