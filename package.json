@@ -8,7 +8,10 @@
     "serve": "eleventy --serve",
     "dev": "rimraf _site; eleventy --serve",
     "build-all": "rimraf _build _site; node src/build.js",
-    "build": "node src/build.js"
+    "build": "node src/build.js",
+    "audit": "node src/audit.js --expect resume=1,resume-full=3,resume-comprehensive=3,resume-recent=2",
+    "audit-all": "npm run audit -- --validate",
+    "probe": "node src/probe.js"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +31,8 @@
     "markdown-it-sub": "^2.0.0",
     "mkdirp": "^3.0.1",
     "open-props": "^1.7.5",
+    "playwright": "^1.62.0",
     "prettier": "^3.3.2",
-    "puppeteer": "^22.12.1",
     "rimraf": "^5.0.7"
   },
   "prettier": {
@@ -53,5 +56,8 @@
       }
     ]
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "pdf-lib": "^1.17.1"
+  }
 }
