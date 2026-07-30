@@ -1,6 +1,7 @@
 ---
 layout: shell.webc
 jobTitle: Senior Frontend Engineer
+sourceVersion: b6135918
 ---
 
 <!--
@@ -34,7 +35,7 @@ jobTitle: Senior Frontend Engineer
 <section class="skills">
   <h2>Core Skills</h2>
   <ul class="skills-list">
-    <li>React, Next.js, Web Components, Lit, Stencil.js, TypeScript, JavaScript</li>
+    <li>React, Next.js, Web Components, TypeScript, JavaScript</li>
     <li>Design systems, design tokens, component libraries, accessibility (a11y, WCAG)</li>
     <li>CSS, SCSS, Styled Components, Emotion, CSS-in-JS, vanilla-extract, SVG</li>
     <li>SSR/SSG, island architecture, JAM stack, Node.js, GraphQL, REST</li>
